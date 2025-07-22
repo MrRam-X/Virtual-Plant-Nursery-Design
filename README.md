@@ -1,9 +1,9 @@
-# Project Name:- 🌿 Virtual Plant Nursery (Design)
-# Project Owner:- Ram Prasad Baidya
-# Developer Name:- Ram Prasad Baidya
-# Linkedin Id:- https://www.linkedin.com/in/ram-prasad-baidya-452766160/
-# Email Id:- ramprasadbaidya21@gmail.com
-# Contact No:- +916290338636
+## Project Name:- 🌿 Virtual Plant Nursery (Design)
+## Project Owner:- Ram Prasad Baidya
+## Developer Name:- Ram Prasad Baidya
+## Linkedin Id:- https://www.linkedin.com/in/ram-prasad-baidya-452766160/
+## Email Id:- ramprasadbaidya21@gmail.com
+## Contact No:- +916290338636
 
 ## Project Description:-
 
