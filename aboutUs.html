@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Virtual Plant Nursery</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Icon Library -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <script>
+      // Custom Tailwind Config
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "brand-green": "#0A3026",
+              "brand-green-light": "#1E473C",
+              "brand-accent": "#F3A33D",
+              "brand-off-white": "#F8F7F4",
+            },
+            fontFamily: {
+              serif: ["Playfair Display", "serif"],
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="bg-brand-off-white font-sans text-brand-green-light">
+    <!-- 1. HEADER -->
+    <header class="bg-brand-green sticky top-0 z-50">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between h-20">
+          <!-- Mobile Menu Toggle -->
+          <div class="lg:hidden">
+            <button id="mobile-menu-open-button" class="text-white">
+              <i class="fas fa-bars fa-lg"></i>
+            </button>
+          </div>
+          <!-- Logo -->
+          <div class="text-center lg:text-left">
+            <a href="index.html" class="font-serif text-3xl text-white"
+              >Planto.</a
+            >
+          </div>
+          <!-- Desktop Navigation -->
+          <nav class="hidden lg:flex">
+            <ul class="flex items-center space-x-8 text-lg text-white">
+              <li>
+                <a href="index.html" class="hover:text-brand-accent">Home</a>
+              </li>
+              <li>
+                <a href="shoppingPage.html" class="hover:text-brand-accent">Shop</a>
+              </li>
+              <li>
+                <a href="aboutUs.html" class="text-brand-accent font-semibold"
+                  >About</a
+                >
+              </li>
+              <li><a href="#" class="hover:text-brand-accent">Contact</a></li>
+            </ul>
+          </nav>
+          <!-- Header Icons -->
+          <div class="flex items-center space-x-4">
+            <a href="#" class="text-white hover:text-brand-accent"
+              ><i class="fas fa-search fa-lg"></i
+            ></a>
+            <a href="#" class="text-white hover:text-brand-accent"
+              ><i class="fas fa-user fa-lg"></i
+            ></a>
+            <a href="#" class="text-white hover:text-brand-accent relative">
+              <i class="fas fa-shopping-cart fa-lg"></i>
+              <span
+                class="absolute -top-2 -right-2 bg-brand-accent text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"
+                >3</span
+              >
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile Menu Panel -->
+      <div
+        id="mobile-menu"
+        class="hidden fixed inset-0 z-40 bg-brand-green bg-opacity-95 backdrop-blur-sm"
+      >
+        <div class="container mx-auto p-4 h-full flex flex-col">
+          <div class="flex justify-end mb-8">
+            <button id="mobile-menu-close-button" class="text-white">
+              <i class="fas fa-times fa-2x"></i>
+            </button>
+          </div>
+          <nav class="flex-grow flex items-center justify-center">
+            <ul
+              class="flex flex-col items-center space-y-8 text-4xl font-serif text-white"
+            >
+              <li>
+                <a href="index.html" class="hover:text-brand-accent">Home</a>
+              </li>
+              <li>
+                <a href="shoppingPage.html" class="hover:text-brand-accent">Shop</a>
+              </li>
+              <li>
+                <a href="aboutUs.html" class="hover:text-brand-accent">About</a>
+              </li>
+              <li><a href="#" class="hover:text-brand-accent">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- 2. ABOUT US HERO SECTION -->
+      <section class="relative bg-brand-green h-[60vh] min-h-[400px]">
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+          <img
+            src="https://images.pexels.com/photos/6508425/pexels-photo-6508425.jpeg"
+            alt="A person's hands gently holding a small plant"
+            class="w-full h-full object-cover opacity-30"
+          />
+        </div>
+        <!-- Content -->
+        <div
+          class="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center text-white"
+        >
+          <h1 class="font-serif text-5xl md:text-7xl leading-tight">
+            Rooted in Passion
+          </h1>
+          <p class="max-w-2xl mt-4 text-lg md:text-xl">
+            We believe that every home deserves a touch of nature. Planto was
+            born from a love for all things green and a desire to share that joy
+            with the world.
+          </p>
+        </div>
+      </section>
+
+      <!-- 3. OUR STORY SECTION -->
+      <section class="py-16 sm:py-24">
+        <div class="container mx-auto px-4">
+          <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
+          >
+            <div class="order-2 lg:order-1">
+              <h2 class="font-serif text-4xl text-brand-green leading-tight">
+                Our Journey to Greenery
+              </h2>
+              <p class="mt-4 text-lg">
+                Founded in 2023, Planto started as a small project in a backyard
+                greenhouse. Our founders, a pair of lifelong botany enthusiasts,
+                wanted to make high-quality, healthy houseplants accessible to
+                everyone, from seasoned plant parents to curious beginners.
+              </p>
+              <p class="mt-4 text-lg">
+                We've since grown into a thriving online nursery, but our core
+                mission remains the same: to deliver healthy, beautiful plants
+                directly to your door and to provide the knowledge and support
+                you need to help them flourish.
+              </p>
+            </div>
+            <div
+              class="order-1 lg:order-2 h-80 lg:h-auto rounded-lg overflow-hidden shadow-xl"
+            >
+              <img
+                src="https://images.pexels.com/photos/15291245/pexels-photo-15291245.jpeg"
+                alt="A sunlit greenhouse filled with various plants"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. OUR VALUES SECTION -->
+      <section class="bg-white py-16 sm:py-24">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-12">
+            <h2 class="font-serif text-4xl text-brand-green">
+              What We Stand For
+            </h2>
+            <p class="text-lg mt-2 max-w-xl mx-auto">
+              Our values guide every decision we make, from sourcing our plants
+              to serving our customers.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <!-- Value 1: Quality -->
+            <div class="p-6">
+              <div
+                class="flex items-center justify-center h-16 w-16 bg-brand-green rounded-full mx-auto mb-4"
+              >
+                <i class="fas fa-leaf text-2xl text-white"></i>
+              </div>
+              <h3 class="font-serif text-2xl text-brand-green mb-2">
+                Premium Quality
+              </h3>
+              <p>
+                Every plant is hand-selected, carefully nurtured, and inspected
+                for health and quality before it begins its journey to you.
+              </p>
+            </div>
+            <!-- Value 2: Sustainability -->
+            <div class="p-6">
+              <div
+                class="flex items-center justify-center h-16 w-16 bg-brand-green rounded-full mx-auto mb-4"
+              >
+                <i class="fas fa-seedling text-2xl text-white"></i>
+              </div>
+              <h3 class="font-serif text-2xl text-brand-green mb-2">
+                Sustainable Practice
+              </h3>
+              <p>
+                We are committed to eco-friendly packaging and sustainable
+                growing practices to protect the planet we love.
+              </p>
+            </div>
+            <!-- Value 3: Expert Support -->
+            <div class="p-6">
+              <div
+                class="flex items-center justify-center h-16 w-16 bg-brand-green rounded-full mx-auto mb-4"
+              >
+                <i class="fas fa-headset text-2xl text-white"></i>
+              </div>
+              <h3 class="font-serif text-2xl text-brand-green mb-2">
+                Expert Support
+              </h3>
+              <p>
+                Your journey with our plants doesn't end at checkout. We're here
+                to offer guidance and support for all your plant care needs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 5. FOOTER -->
+    <footer class="bg-brand-green text-white">
+      <div class="container mx-auto px-4 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div>
+            <h3 class="font-serif text-3xl mb-4">Planto.</h3>
+            <p class="mb-4">
+              We sell beautiful and healthy plants for your home.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-white hover:text-brand-accent"
+                ><i class="fab fa-facebook-f fa-lg"></i></a
+              ><a href="#" class="text-white hover:text-brand-accent"
+                ><i class="fab fa-instagram fa-lg"></i></a
+              ><a href="#" class="text-white hover:text-brand-accent"
+                ><i class="fab fa-pinterest-p fa-lg"></i
+              ></a>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-bold text-xl mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="index.html" class="hover:text-brand-accent">Home</a>
+              </li>
+              <li>
+                <a href="shoppingPage.html" class="hover:text-brand-accent">Shop</a>
+              </li>
+              <li>
+                <a href="aboutUs.html" class="hover:text-brand-accent">About</a>
+              </li>
+              <li><a href="#" class="hover:text-brand-accent">FAQs</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-xl mb-4">Contact</h4>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <i class="fas fa-map-marker-alt mt-1 mr-3"></i>123 Green St,
+                Flora City, USA
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-envelope mr-3"></i>hello@planto.com
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-phone mr-3"></i>+1 (123) 456-7890
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-xl mb-4">Join Our Newsletter</h4>
+            <p class="mb-4">
+              Get plant care tips and exclusive offers directly to your inbox.
+            </p>
+            <div class="flex">
+              <input
+                type="email"
+                placeholder="Your email"
+                class="w-full py-2 px-3 text-brand-green focus:outline-none"
+              /><button
+                class="bg-brand-accent text-brand-green font-bold py-2 px-4 hover:bg-opacity-90"
+              >
+                Sub
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-brand-green-light py-6">
+        <p class="text-center text-gray-400">
+          &copy; 2025 Planto. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+      const openButton = document.getElementById("mobile-menu-open-button");
+      const closeButton = document.getElementById("mobile-menu-close-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navLinks = mobileMenu.querySelectorAll("a");
+      function openMenu() {
+        mobileMenu.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+      function closeMenu() {
+        mobileMenu.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+      openButton.addEventListener("click", openMenu);
+      closeButton.addEventListener("click", closeMenu);
+      navLinks.forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+    </script>
+  </body>
+</html>

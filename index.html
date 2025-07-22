@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Virtual Plant Nursery - Template</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for a similar look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Icon Library -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <script>
+      // Custom Tailwind Config to match the design's colors and fonts
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "brand-green": "#0A3026",
+              "brand-green-light": "#1E473C",
+              "brand-accent": "#F3A33D",
+              "brand-off-white": "#F8F7F4",
+            },
+            fontFamily: {
+              serif: ["Playfair Display", "serif"],
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="bg-brand-off-white font-sans text-brand-green-light">
+    <!-- 1. HEADER (MODIFIED) -->
+    <header class="bg-brand-green sticky top-0 z-50">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between h-20">
+          <!-- Mobile Menu Toggle Button -->
+          <div class="lg:hidden">
+            <button id="mobile-menu-open-button" class="text-white">
+              <i class="fas fa-bars fa-lg"></i>
+            </button>
+          </div>
+
+          <!-- Logo -->
+          <div class="text-center lg:text-left">
+            <a href="#" class="font-serif text-3xl text-white">Planto.</a>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden lg:flex">
+            <ul class="flex items-center space-x-8 text-lg text-white">
+              <li><a href="./index.html" class="hover:text-brand-accent">Home</a></li>
+              <li><a href="./shoppingPage.html" class="hover:text-brand-accent">Shop</a></li>
+              <li><a href="./aboutUs.html" class="hover:text-brand-accent">About</a></li>
+              <li><a href="#" class="hover:text-brand-accent">Contact</a></li>
+            </ul>
+          </nav>
+
+          <!-- Header Icons -->
+          <div class="flex items-center space-x-4">
+            <a href="#" class="text-white hover:text-brand-accent"
+              ><i class="fas fa-search fa-lg"></i
+            ></a>
+            <a href="#" class="text-white hover:text-brand-accent"
+              ><i class="fas fa-user fa-lg"></i
+            ></a>
+            <a href="#" class="text-white hover:text-brand-accent relative">
+              <i class="fas fa-shopping-cart fa-lg"></i>
+              <span
+                class="absolute -top-2 -right-2 bg-brand-accent text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"
+                >3</span
+              >
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Panel (Hidden by default) -->
+      <div
+        id="mobile-menu"
+        class="hidden fixed inset-0 z-40 bg-brand-green bg-opacity-95 backdrop-blur-sm"
+      >
+        <div class="container mx-auto p-4 h-full flex flex-col">
+          <!-- Top section with close button -->
+          <div class="flex justify-end mb-8">
+            <button id="mobile-menu-close-button" class="text-white">
+              <i class="fas fa-times fa-2x"></i>
+            </button>
+          </div>
+
+          <!-- Centered Navigation Links -->
+          <nav class="flex-grow flex items-center justify-center">
+            <ul
+              class="flex flex-col items-center space-y-8 text-4xl font-serif text-white"
+            >
+              <li><a href="./index.html" class="hover:text-brand-accent">Home</a></li>
+              <li><a href="./shoppingPage.html" class="hover:text-brand-accent">Shop</a></li>
+              <li><a href="./aboutUs.html" class="hover:text-brand-accent">About</a></li>
+              <li><a href="#" class="hover:text-brand-accent">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- 2. HERO SECTION -->
+      <section
+        class="relative bg-brand-green h-[calc(100vh-80px)] min-h-[500px]"
+      >
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+          <img
+            src="https://images.pexels.com/photos/6508425/pexels-photo-6508425.jpeg"
+            alt="Lush green plant background"
+            class="w-full h-full object-cover opacity-30"
+          />
+        </div>
+
+        <!-- Content -->
+        <div
+          class="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center items-start text-white"
+        >
+          <h1 class="font-serif text-5xl md:text-7xl leading-tight">
+            Bring Serenity
+          </h1>
+          <h2 class="font-serif text-5xl md:text-7xl leading-tight mb-4">
+            to Your Home
+          </h2>
+          <p class="max-w-md mb-8 text-lg">
+            Discover our exclusive collection of houseplants and bring the
+            beauty of nature into your daily life.
+          </p>
+          <a
+            href="./shoppingPage.html"
+            class="bg-brand-accent text-brand-green font-bold py-3 px-8 text-lg hover:bg-opacity-90 transition-transform hover:scale-105"
+            >Shop Now</a
+          >
+        </div>
+      </section>
+
+      <!-- 3. FEATURED CATEGORIES SECTION -->
+      <section class="py-16 sm:py-24">
+        <div class="container mx-auto px-4">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+            <!-- Category Card 1 -->
+            <div class="bg-white p-6 shadow-sm text-center">
+              <img
+                src="https://images.pexels.com/photos/1005058/pexels-photo-1005058.jpeg"
+                alt="Indoor Plants Icon"
+                class="h-16 mx-auto mb-4"
+              />
+              <h3 class="font-serif text-xl text-brand-green">Indoor Plants</h3>
+            </div>
+            <!-- Category Card 2 -->
+            <div class="bg-white p-6 shadow-sm text-center">
+              <img
+                src="https://images.pexels.com/photos/33095875/pexels-photo-33095875.jpeg"
+                alt="Outdoor Plants Icon"
+                class="h-16 mx-auto mb-4"
+              />
+              <h3 class="font-serif text-xl text-brand-green">
+                Outdoor Plants
+              </h3>
+            </div>
+            <!-- Category Card 3 -->
+            <div class="bg-white p-6 shadow-sm text-center">
+              <img
+                src="https://images.pexels.com/photos/4503273/pexels-photo-4503273.jpeg"
+                alt="Pots & Planters Icon"
+                class="h-16 mx-auto mb-4"
+              />
+              <h3 class="font-serif text-xl text-brand-green">
+                Pots & Planters
+              </h3>
+            </div>
+            <!-- Category Card 4 -->
+            <div class="bg-white p-6 shadow-sm text-center">
+              <img
+                src="https://images.pexels.com/photos/793012/pexels-photo-793012.jpeg"
+                alt="Plant Care Icon"
+                class="h-16 mx-auto mb-4"
+              />
+              <h3 class="font-serif text-xl text-brand-green">Plant Care</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. FEATURED PRODUCTS SECTION -->
+      <section class="pb-16 sm:pb-24">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-12">
+            <h2 class="font-serif text-4xl text-brand-green">
+              Featured Products
+            </h2>
+            <p class="text-lg mt-2">Check out our most popular plants</p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Product Card 1 -->
+            <div class="bg-white shadow-lg group">
+              <div class="relative overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/6297518/pexels-photo-6297518.jpeg"
+                  class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
+                  alt="Monstera Deliciosa"
+                />
+                <div
+                  class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                >
+                  <a
+                    href="#"
+                    class="bg-white text-brand-green py-2 px-4 font-semibold"
+                    >Add to Cart</a
+                  >
+                </div>
+              </div>
+              <div class="p-4 text-center">
+                <h3 class="text-xl font-medium">Monstera Deliciosa</h3>
+                <p class="text-lg text-brand-accent font-bold mt-1">$45.00</p>
+              </div>
+            </div>
+            <!-- Product Card 2 -->
+            <div class="bg-white shadow-lg group">
+              <div class="relative overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/1383044/pexels-photo-1383044.jpeg"
+                  class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
+                  alt="Snake Plant"
+                />
+                <div
+                  class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                >
+                  <a
+                    href="#"
+                    class="bg-white text-brand-green py-2 px-4 font-semibold"
+                    >Add to Cart</a
+                  >
+                </div>
+              </div>
+              <div class="p-4 text-center">
+                <h3 class="text-xl font-medium">Snake Plant</h3>
+                <p class="text-lg text-brand-accent font-bold mt-1">$35.00</p>
+              </div>
+            </div>
+            <!-- Product Card 3 -->
+            <div class="bg-white shadow-lg group">
+              <div class="relative overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/7245625/pexels-photo-7245625.jpeg"
+                  class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
+                  alt="Fiddle Leaf Fig"
+                />
+                <div
+                  class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                >
+                  <a
+                    href="#"
+                    class="bg-white text-brand-green py-2 px-4 font-semibold"
+                    >Add to Cart</a
+                  >
+                </div>
+              </div>
+              <div class="p-4 text-center">
+                <h3 class="text-xl font-medium">Fiddle Leaf Fig</h3>
+                <p class="text-lg text-brand-accent font-bold mt-1">$75.00</p>
+              </div>
+            </div>
+            <!-- Product Card 4 -->
+            <div class="bg-white shadow-lg group">
+              <div class="relative overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/824572/pexels-photo-824572.jpeg"
+                  class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
+                  alt="ZZ Plant"
+                />
+                <div
+                  class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                >
+                  <a
+                    href="#"
+                    class="bg-white text-brand-green py-2 px-4 font-semibold"
+                    >Add to Cart</a
+                  >
+                </div>
+              </div>
+              <div class="p-4 text-center">
+                <h3 class="text-xl font-medium">ZZ Plant</h3>
+                <p class="text-lg text-brand-accent font-bold mt-1">$40.00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. PROMOTIONAL BANNER SECTION -->
+      <section class="container mx-auto px-4 pb-16 sm:pb-24">
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-white shadow-lg"
+        >
+          <div class="order-2 lg:order-1 p-8 md:p-12">
+            <h2 class="font-serif text-4xl text-brand-green leading-tight">
+              We help you choose the most suitable plants for you
+            </h2>
+            <p class="mt-4 mb-6 text-lg">
+              Our plant experts are here to guide you in finding the perfect
+              green companion for your home and lifestyle.
+            </p>
+            <a
+              href="#"
+              class="bg-brand-green text-white font-bold py-3 px-8 text-lg hover:bg-brand-green-light"
+              >Explore Guide</a
+            >
+          </div>
+          <div class="order-1 lg:order-2 h-64 lg:h-full min-h-[300px]">
+            <img
+              src="https://images.unsplash.com/photo-1521334884684-d80222895322?q=80&w=2874&auto=format&fit=crop"
+              alt="Woman tending to plants"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 6. FOOTER -->
+    <footer class="bg-brand-green text-white">
+      <div class="container mx-auto px-4 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <!-- Column 1: Brand -->
+          <div>
+            <h3 class="font-serif text-3xl mb-4">Planto.</h3>
+            <p class="mb-4">
+              We sell beautiful and healthy plants for your home.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-white hover:text-brand-accent"
+                ><i class="fab fa-facebook-f fa-lg"></i
+              ></a>
+              <a href="#" class="text-white hover:text-brand-accent"
+                ><i class="fab fa-instagram fa-lg"></i
+              ></a>
+              <a href="#" class="text-white hover:text-brand-accent"
+                ><i class="fab fa-pinterest-p fa-lg"></i
+              ></a>
+            </div>
+          </div>
+          <!-- Column 2: Quick Links -->
+          <div>
+            <h4 class="font-bold text-xl mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li><a href="./aboutUs.html" class="hover:text-brand-accent">About</a></li>
+              <li>
+                <a href="./shoppingPage.html" class="hover:text-brand-accent"
+                  >Shop</a
+                >
+              </li>
+              <li><a href="#" class="hover:text-brand-accent">Contact</a></li>
+              <li><a href="#" class="hover:text-brand-accent">FAQs</a></li>
+            </ul>
+          </div>
+          <!-- Column 3: Contact -->
+          <div>
+            <h4 class="font-bold text-xl mb-4">Contact</h4>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <i class="fas fa-map-marker-alt mt-1 mr-3"></i>123 Green St,
+                Flora City, USA
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-envelope mr-3"></i>hello@planto.com
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-phone mr-3"></i>+1 (123) 456-7890
+              </li>
+            </ul>
+          </div>
+          <!-- Column 4: Newsletter -->
+          <div>
+            <h4 class="font-bold text-xl mb-4">Join Our Newsletter</h4>
+            <p class="mb-4">
+              Get plant care tips and exclusive offers directly to your inbox.
+            </p>
+            <div class="flex">
+              <input
+                type="email"
+                placeholder="Your email"
+                class="w-full py-2 px-3 text-brand-green focus:outline-none"
+              />
+              <button
+                class="bg-brand-accent text-brand-green font-bold py-2 px-4 hover:bg-opacity-90"
+              >
+                Sub
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-brand-green-light py-6">
+        <p class="text-center text-gray-400">
+          &copy; 2025 Planto. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+    <script>
+      const openButton = document.getElementById("mobile-menu-open-button");
+      const closeButton = document.getElementById("mobile-menu-close-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navLinks = mobileMenu.querySelectorAll("a");
+
+      // Function to open the menu
+      function openMenu() {
+        mobileMenu.classList.remove("hidden");
+        document.body.style.overflow = "hidden"; // Prevents scrolling of the background page
+      }
+
+      // Function to close the menu
+      function closeMenu() {
+        mobileMenu.classList.add("hidden");
+        document.body.style.overflow = ""; // Re-enables scrolling
+      }
+
+      // Event Listeners
+      openButton.addEventListener("click", openMenu);
+      closeButton.addEventListener("click", closeMenu);
+
+      // Also close menu when a navigation link is clicked
+      navLinks.forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+    </script>
+  </body>
+</html>
