@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Detail - Virtual Plant Nursery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "brand-green": "#0A3026",
+              "brand-green-light": "#1E473C",
+              "brand-accent": "#F3A33D",
+              "brand-off-white": "#F8F7F4",
+            },
+            fontFamily: {
+              serif: ["Playfair Display", "serif"],
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="bg-white font-sans text-brand-green-light">
+    <!-- 1. HEADER -->
+    <header class="bg-brand-green sticky top-0 z-50">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between h-20">
+          <div class="lg:hidden">
+            <button id="mobile-menu-open-button" class="text-white">
+              <i class="fas fa-bars fa-lg"></i>
+            </button>
+          </div>
+          <div class="text-center lg:text-left">
+            <a href="index.html" class="font-serif text-3xl text-white"
+              >Planto.</a
+            >
+          </div>
+          <nav class="hidden lg:flex">
+            <ul class="flex items-center space-x-8 text-lg text-white">
+              <li>
+                <a href="index.html" class="hover:text-brand-accent">Home</a>
+              </li>
+              <li>
+                <a
+                  href="shoppingPage.html"
+                  class="text-brand-accent font-semibold"
+                  >Shop</a
+                >
+              </li>
+              <li>
+                <a href="aboutUs.html" class="hover:text-brand-accent">About</a>
+              </li>
+              <li>
+                <a href="contactUs.html" class="hover:text-brand-accent"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <div class="flex items-center space-x-4">
+            <a href="#" class="text-white hover:text-brand-accent"
+              ><i class="fas fa-search fa-lg"></i></a
+            ><a href="#" class="text-white hover:text-brand-accent"
+              ><i class="fas fa-user fa-lg"></i></a
+            ><a href="#" class="text-white hover:text-brand-accent relative"
+              ><i class="fas fa-shopping-cart fa-lg"></i
+              ><span
+                class="absolute -top-2 -right-2 bg-brand-accent text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"
+                >3</span
+              ></a
+            >
+          </div>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="hidden fixed inset-0 z-40 bg-brand-green bg-opacity-95 backdrop-blur-sm"
+      >
+        <div class="container mx-auto p-4 h-full flex flex-col">
+          <div class="flex justify-end mb-8">
+            <button id="mobile-menu-close-button" class="text-white">
+              <i class="fas fa-times fa-2x"></i>
+            </button>
+          </div>
+          <nav class="flex-grow flex items-center justify-center">
+            <ul
+              class="flex flex-col items-center space-y-8 text-4xl font-serif text-white"
+            >
+              <li>
+                <a href="index.html" class="hover:text-brand-accent">Home</a>
+              </li>
+              <li>
+                <a href="shoppingPage.html" class="hover:text-brand-accent"
+                  >Shop</a
+                >
+              </li>
+              <li>
+                <a href="aboutUs.html" class="hover:text-brand-accent">About</a>
+              </li>
+              <li>
+                <a href="contactUs.html" class="hover:text-brand-accent"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="bg-brand-off-white py-8 sm:py-12">
+      <div class="container mx-auto px-4">
+        <!-- Breadcrumb Navigation -->
+        <div class="text-sm mb-8">
+          <a href="index.html" class="hover:text-brand-accent">Home</a>
+          <span class="mx-2 text-gray-400">/</span>
+          <a href="shoppingPage.html" class="hover:text-brand-accent">Shop</a>
+          <span class="mx-2 text-gray-400">/</span>
+          <span class="text-gray-500">Monstera Deliciosa</span>
+        </div>
+
+        <!-- Main Product Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+          <!-- Left Column: Image Gallery -->
+          <div id="image-gallery">
+            <div
+              class="main-image bg-white p-4 rounded-lg shadow-sm border border-gray-200 mb-4"
+            >
+              <img
+                id="main-product-image"
+                src="https://images.pexels.com/photos/6297518/pexels-photo-6297518.jpeg"
+                alt="Monstera Deliciosa in a pot"
+                class="w-full h-auto object-cover rounded-md max-h-[500px]"
+              />
+            </div>
+            <div class="thumbnails grid grid-cols-4 gap-4">
+              <button
+                class="thumbnail-button border-2 border-brand-green rounded-lg p-1"
+              >
+                <img
+                  src="https://images.pexels.com/photos/6297518/pexels-photo-6297518.jpeg"
+                  alt="Monstera Thumbnail 1"
+                  class="w-full h-full object-cover rounded-md"
+                />
+              </button>
+              <button
+                class="thumbnail-button border-2 border-transparent hover:border-brand-green rounded-lg p-1"
+              >
+                <img
+                  src="https://images.pexels.com/photos/3125195/pexels-photo-3125195.jpeg"
+                  alt="Monstera Thumbnail 2"
+                  class="w-full h-full object-cover rounded-md"
+                />
+              </button>
+              <button
+                class="thumbnail-button border-2 border-transparent hover:border-brand-green rounded-lg p-1"
+              >
+                <img
+                  src="https://images.pexels.com/photos/12684656/pexels-photo-12684656.jpeg"
+                  alt="Monstera Thumbnail 3"
+                  class="w-full h-full object-cover rounded-md"
+                />
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Column: Product Info -->
+          <div class="space-y-6">
+            <h1 class="font-serif text-4xl lg:text-5xl text-brand-green">
+              Monstera Deliciosa
+            </h1>
+
+            <div class="flex items-center gap-4">
+              <div class="flex items-center text-yellow-500">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star-half-alt"></i>
+              </div>
+              <a href="#" class="text-sm text-gray-600 hover:underline"
+                >(12 Reviews)</a
+              >
+            </div>
+
+            <div class="flex items-baseline gap-2">
+              <p class="text-3xl text-black font-bold">$36.00</p>
+              <p class="text-xl text-gray-500 line-through">$45.00</p>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed">
+              The Monstera Deliciosa, often called the Swiss Cheese Plant, is a
+              tropical icon known for its unique, fenestrated leaves. It's a
+              relatively easy-to-care-for statement piece that brings a lush,
+              jungle vibe to any room.
+            </p>
+
+            <div class="flex items-center gap-4 pt-4">
+              <div
+                class="quantity-selector flex items-center border rounded-md"
+              >
+                <button
+                  data-action="decrement"
+                  class="px-4 py-2 text-lg font-bold hover:bg-gray-200 rounded-l-md"
+                >
+                  -
+                </button>
+                <input
+                  id="quantity-input"
+                  type="text"
+                  value="1"
+                  readonly
+                  class="w-12 text-center border-l border-r font-semibold"
+                />
+                <button
+                  data-action="increment"
+                  class="px-4 py-2 text-lg font-bold hover:bg-gray-200 rounded-r-md"
+                >
+                  +
+                </button>
+              </div>
+              <button
+                class="w-full py-3 px-4 rounded-md text-lg font-bold text-white bg-brand-green hover:bg-brand-green-light transition-all flex-1"
+              >
+                Add to Cart
+              </button>
+              <button
+                class="py-3 px-4 border rounded-md text-xl text-red-500 hover:bg-red-50 transition-all"
+              >
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+
+            <!-- Accordion for Details -->
+            <div class="space-y-4 pt-4">
+              <!-- Care Guide Accordion -->
+              <div class="border-t">
+                <button
+                  data-accordion-button
+                  class="w-full flex justify-between items-center py-4 text-left"
+                >
+                  <h3 class="font-semibold text-lg text-brand-green">
+                    Care Guide
+                  </h3>
+                  <i class="fas fa-plus transition-transform duration-300"></i>
+                </button>
+                <div
+                  class="pb-4 space-y-2 text-gray-600 hidden"
+                  data-accordion-panel
+                >
+                  <p>
+                    <strong>Light:</strong> Bright, indirect sunlight. Avoid
+                    direct sun.
+                  </p>
+                  <p>
+                    <strong>Water:</strong> Water every 1-2 weeks, allowing soil
+                    to dry out between waterings.
+                  </p>
+                  <p>
+                    <strong>Humidity:</strong> Prefers humid conditions. Mist
+                    regularly.
+                  </p>
+                </div>
+              </div>
+              <!-- Shipping Accordion -->
+              <div class="border-t">
+                <button
+                  data-accordion-button
+                  class="w-full flex justify-between items-center py-4 text-left"
+                >
+                  <h3 class="font-semibold text-lg text-brand-green">
+                    Shipping & Returns
+                  </h3>
+                  <i class="fas fa-plus transition-transform duration-300"></i>
+                </button>
+                <div
+                  class="pb-4 space-y-2 text-gray-600 hidden"
+                  data-accordion-panel
+                >
+                  <p>
+                    Ships within 3-5 business days. We offer a 14-day return
+                    policy on all plants if they arrive damaged.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Related Products Section -->
+        <div class="mt-24">
+          <h2 class="font-serif text-4xl text-brand-green text-center mb-12">
+            You Might Also Like
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Related Product 1 -->
+            <div
+              class="bg-white group rounded-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300"
+            >
+              <a href="#" class="block relative h-72 sm:h-80"
+                ><div
+                  class="absolute top-0 left-0 bg-brand-accent text-white text-xs font-bold px-2 py-1 m-3 rounded-md"
+                >
+                  -15%
+                </div>
+                <img
+                  src="https://images.pexels.com/photos/7245625/pexels-photo-7245625.jpeg"
+                  alt="Fiddle Leaf Fig"
+                  class="w-full h-full object-cover"
+              /></a>
+              <div class="p-4 space-y-3">
+                <div class="flex justify-between items-center text-xs">
+                  <p class="text-gray-500">Indoor Plant</p>
+                  <div class="flex items-center gap-1">
+                    <i class="fas fa-star text-yellow-500"></i
+                    ><span class="font-semibold">4.7</span>
+                  </div>
+                </div>
+                <div class="flex justify-between items-start gap-2">
+                  <a
+                    href="#"
+                    class="block font-medium text-brand-green hover:underline"
+                    >Fiddle Leaf Fig</a
+                  ><button class="text-xl text-red-500">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="flex justify-between items-center">
+                  <div class="flex items-baseline gap-2">
+                    <p class="text-lg text-black font-bold">$63.75</p>
+                    <p class="text-sm text-gray-500 line-through">$75.00</p>
+                  </div>
+                  <button class="text-2xl text-brand-green">
+                    <i class="fas fa-cart-plus"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Related Product 2 -->
+            <div
+              class="bg-white group rounded-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300"
+            >
+              <a href="#" class="block relative h-72 sm:h-80"
+                ><img
+                  src="https://images.pexels.com/photos/1383044/pexels-photo-1383044.jpeg"
+                  alt="Snake Plant"
+                  class="w-full h-full object-cover"
+              /></a>
+              <div class="p-4 space-y-3">
+                <div class="flex justify-between items-center text-xs">
+                  <p class="text-gray-500">Succulent</p>
+                  <div class="flex items-center gap-1">
+                    <i class="fas fa-star text-yellow-500"></i
+                    ><span class="font-semibold">4.9</span>
+                  </div>
+                </div>
+                <div class="flex justify-between items-start gap-2">
+                  <a
+                    href="#"
+                    class="block font-medium text-brand-green hover:underline"
+                    >Snake Plant</a
+                  ><button class="text-xl text-red-500">
+                    <i class="far fa-heart"></i>
+                  </button>
+                </div>
+                <div class="flex justify-between items-center">
+                  <div class="flex items-baseline gap-2">
+                    <p class="text-lg text-black font-bold">$26.25</p>
+                    <p class="text-sm text-gray-500 line-through">$35.00</p>
+                  </div>
+                  <button class="text-2xl text-brand-green">
+                    <i class="fas fa-cart-shopping"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Related Product 3 -->
+            <div
+              class="bg-white group rounded-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300"
+            >
+              <a href="#" class="block relative h-72 sm:h-80"
+                ><img
+                  src="https://images.pexels.com/photos/824572/pexels-photo-824572.jpeg"
+                  alt="ZZ Plant"
+                  class="w-full h-full object-cover"
+              /></a>
+              <div class="p-4 space-y-3">
+                <div class="flex justify-between items-center text-xs">
+                  <p class="text-gray-500">Indoor Plant</p>
+                  <div class="flex items-center gap-1">
+                    <i class="fas fa-star text-yellow-500"></i
+                    ><span class="font-semibold">4.8</span>
+                  </div>
+                </div>
+                <div class="flex justify-between items-start gap-2">
+                  <a
+                    href="#"
+                    class="block font-medium text-brand-green hover:underline"
+                    >ZZ Plant</a
+                  ><button class="text-xl text-red-500">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="flex justify-between items-center">
+                  <div class="flex items-baseline gap-2">
+                    <p class="text-lg text-black font-bold">$28.00</p>
+                    <p class="text-sm text-gray-500 line-through">$40.00</p>
+                  </div>
+                  <button class="text-2xl text-brand-green">
+                    <i class="fas fa-cart-shopping"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-green text-white">
+      <div class="container mx-auto px-4 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div>
+            <h3 class="font-serif text-3xl mb-4">Planto.</h3>
+            <p class="mb-4">
+              We sell beautiful and healthy plants for your home.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-white hover:text-brand-accent"
+                ><i class="fab fa-facebook-f fa-lg"></i></a
+              ><a href="#" class="text-white hover:text-brand-accent"
+                ><i class="fab fa-instagram fa-lg"></i></a
+              ><a href="#" class="text-white hover:text-brand-accent"
+                ><i class="fab fa-pinterest-p fa-lg"></i
+              ></a>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-bold text-xl mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="aboutUs.html" class="hover:text-brand-accent"
+                  >About Us</a
+                >
+              </li>
+              <li><a href="#" class="hover:text-brand-accent">Shop</a></li>
+              <li><a href="#" class="hover:text-brand-accent">Contact</a></li>
+              <li><a href="#" class="hover:text-brand-accent">FAQs</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-xl mb-4">Contact</h4>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <i class="fas fa-map-marker-alt mt-1 mr-3"></i>123 Green St,
+                Flora City, USA
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-envelope mr-3"></i>hello@planto.com
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-phone mr-3"></i>+1 (123) 456-7890
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-xl mb-4">Join Our Newsletter</h4>
+            <p class="mb-4">
+              Get plant care tips and exclusive offers directly to your inbox.
+            </p>
+            <div class="flex">
+              <input
+                type="email"
+                placeholder="Your email"
+                class="w-full py-2 px-3 text-brand-green focus:outline-none"
+              /><button
+                class="bg-brand-accent text-brand-green font-bold py-2 px-4 hover:bg-opacity-90"
+              >
+                Sub
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-brand-green-light py-6">
+        <p class="text-center text-gray-400">
+          © 2025 Planto. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- All JavaScript -->
+    <script>
+      // --- Mobile Header Menu Logic ---
+      const headerMenuOpenBtn = document.getElementById(
+        "mobile-menu-open-button"
+      );
+      const headerMenuCloseBtn = document.getElementById(
+        "mobile-menu-close-button"
+      );
+      const headerMenu = document.getElementById("mobile-menu");
+      if (headerMenu) {
+        headerMenuOpenBtn.addEventListener("click", () => {
+          headerMenu.classList.remove("hidden");
+          document.body.style.overflow = "hidden";
+        });
+        headerMenuCloseBtn.addEventListener("click", () => {
+          headerMenu.classList.add("hidden");
+          document.body.style.overflow = "";
+        });
+        headerMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            headerMenu.classList.add("hidden");
+            document.body.style.overflow = "";
+          });
+        });
+      }
+
+      // --- Image Gallery Logic ---
+      const mainImage = document.getElementById("main-product-image");
+      const thumbnailButtons = document.querySelectorAll(".thumbnail-button");
+      thumbnailButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Set main image src to the clicked thumbnail's image src
+          mainImage.src = button.querySelector("img").src;
+          // Update active thumbnail style
+          thumbnailButtons.forEach((btn) =>
+            btn.classList.remove("border-brand-green")
+          );
+          button.classList.add("border-brand-green");
+        });
+      });
+
+      // --- Quantity Selector Logic ---
+      const quantityInput = document.getElementById("quantity-input");
+      const quantitySelector = document.querySelector(".quantity-selector");
+      quantitySelector.addEventListener("click", (e) => {
+        const button = e.target.closest("button");
+        if (!button) return;
+        const action = button.dataset.action;
+        let currentValue = parseInt(quantityInput.value);
+        if (action === "increment") {
+          quantityInput.value = currentValue + 1;
+        } else if (action === "decrement" && currentValue > 1) {
+          quantityInput.value = currentValue - 1;
+        }
+      });
+
+      // --- Accordion Logic ---
+      document.querySelectorAll("[data-accordion-button]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const panel = button.nextElementSibling;
+          const icon = button.querySelector("i");
+          panel.classList.toggle("hidden");
+          if (panel.classList.contains("hidden")) {
+            icon.classList.remove("fa-minus");
+            icon.classList.add("fa-plus");
+          } else {
+            icon.classList.remove("fa-plus");
+            icon.classList.add("fa-minus");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
