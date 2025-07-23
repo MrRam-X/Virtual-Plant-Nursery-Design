@@ -127,11 +127,35 @@
       </div>
     </header>
 
-    <!-- START: REPLACE THE ENTIRE <main> SECTION WITH THIS -->
+    <!-- START: REPLACE THE ENTIRE <main> SECTION WITH THIS CODE -->
     <main class="bg-brand-off-white">
+      <!-- 1. NEW HERO SECTION -->
+      <section class="relative bg-brand-green h-[40vh] min-h-[300px]">
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+          <img
+            src="https://images.pexels.com/photos/6508425/pexels-photo-6508425.jpeg"
+            alt="A variety of green plants on shelves"
+            class="w-full h-full object-cover opacity-20"
+          />
+        </div>
+        <!-- Content -->
+        <div
+          class="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center text-white"
+        >
+          <h1 class="font-serif text-5xl md:text-6xl leading-tight">
+            Your Green Sanctuary Awaits
+          </h1>
+          <p class="max-w-2xl mt-4 text-lg md:text-xl">
+            Explore our curated collection of plants and essentials to bring
+            nature home.
+          </p>
+        </div>
+      </section>
+
       <div class="container mx-auto px-4 py-8 sm:py-12">
         <div class="grid grid-cols-1 lg:grid-cols-4 lg:gap-12">
-          <!-- ===== LEFT SIDEBAR - FILTERS (Visible on large screens) ===== -->
+          <!-- ===== LEFT SIDEBAR - FILTERS ===== -->
           <aside class="hidden lg:block lg:col-span-1">
             <div class="sticky top-28">
               <!-- Search Bar -->
@@ -147,7 +171,6 @@
                   <i class="fas fa-search"></i>
                 </button>
               </div>
-
               <h2 class="font-serif text-3xl text-brand-green mb-6">Filters</h2>
               <div class="space-y-6">
                 <!-- Category Filter Accordion -->
@@ -185,7 +208,6 @@
                     >
                   </div>
                 </div>
-
                 <!-- Price Range Filter Accordion -->
                 <div class="border-b border-gray-200 pb-6">
                   <button
@@ -202,8 +224,8 @@
                   <div class="mt-4 hidden" data-accordion-panel>
                     <div class="flex items-center justify-between space-x-3">
                       <div class="w-1/2">
-                        <label for="min-price" class="text-sm">Min</label>
-                        <input
+                        <label for="min-price" class="text-sm">Min</label
+                        ><input
                           type="number"
                           id="min-price"
                           placeholder="$0"
@@ -211,8 +233,8 @@
                         />
                       </div>
                       <div class="w-1/2">
-                        <label for="max-price" class="text-sm">Max</label>
-                        <input
+                        <label for="max-price" class="text-sm">Max</label
+                        ><input
                           type="number"
                           id="max-price"
                           placeholder="$500"
@@ -222,7 +244,6 @@
                     </div>
                   </div>
                 </div>
-
                 <button
                   class="w-full py-3 px-4 rounded-md text-lg font-bold text-white bg-brand-green hover:bg-brand-green-light transition-all"
                 >
@@ -234,47 +255,37 @@
 
           <!-- ===== RIGHT SIDE - PRODUCTS ===== -->
           <div class="lg:col-span-3">
-            <!-- Top Bar: Mobile Filters & Sorting -->
+            <!-- Top Bar -->
             <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
               <p class="text-gray-600 w-full sm:w-auto">
-                Showing 1-12 of 80 products
+                Showing 1-9 of 80 products
               </p>
-
               <div class="flex items-center gap-4 w-full sm:w-auto">
-                <!-- Mobile Filter Button -->
                 <button
                   id="mobile-filter-open-button"
                   class="lg:hidden flex-1 sm:flex-initial py-2 px-4 border rounded-md flex items-center justify-center"
                 >
-                  <i class="fas fa-filter mr-2"></i>
-                  <span>Filters</span>
+                  <i class="fas fa-filter mr-2"></i><span>Filters</span>
                 </button>
-
-                <!-- Sort By Dropdown Container -->
                 <div
                   class="flex-1 sm:flex-initial relative"
                   id="custom-sort-dropdown"
                 >
-                  <!-- The button that shows the current selection -->
                   <button
                     id="sort-dropdown-button"
                     class="w-full border rounded-md p-2 flex items-center justify-between bg-white focus:outline-none focus:ring-2 focus:ring-brand-accent"
                   >
                     <span id="sort-dropdown-label" class="text-gray-700"
                       >Sort by: Latest</span
-                    >
-                    <i
+                    ><i
                       class="fas fa-chevron-down text-xs text-gray-500 transition-transform duration-300"
                     ></i>
                   </button>
-
-                  <!-- The dropdown panel with the options -->
                   <div
                     id="sort-dropdown-panel"
                     class="hidden absolute right-0 mt-1 w-full bg-white border rounded-md shadow-lg z-20"
                   >
                     <ul class="py-1">
-                      <!-- Each li is an option -->
                       <li
                         data-value="Sort by: Latest"
                         class="px-4 py-2 text-sm text-gray-700 hover:bg-brand-off-white cursor-pointer flex justify-between items-center"
@@ -304,16 +315,12 @@
             <!-- Active Filters Bar -->
             <div class="flex items-center flex-wrap gap-2 mb-6">
               <h4 class="font-semibold mr-2">Active:</h4>
-              <!-- Example Active Filter Tag -->
               <span
                 class="flex items-center bg-brand-green text-white text-sm font-medium pl-3 pr-2 py-1 rounded-full"
-              >
-                Outdoor Plants
+                >Outdoor Plants
                 <button class="ml-2 text-white hover:text-brand-accent">
-                  <i class="fas fa-times text-xs"></i>
-                </button>
-              </span>
-              <button
+                  <i class="fas fa-times text-xs"></i></button></span
+              ><button
                 class="text-sm text-gray-500 hover:text-red-500 underline ml-auto"
               >
                 Clear All
@@ -326,113 +333,260 @@
             >
               <!-- Product Card 1 -->
               <div
-                class="bg-white group rounded-lg overflow-hidden border border-transparent hover:border-gray-200 hover:shadow-xl transition-all duration-300"
+                class="bg-white group rounded-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300"
               >
-                <div class="relative h-72 sm:h-80">
+                <a href="#" class="block relative h-72 sm:h-80">
+                  <div
+                    class="absolute top-0 left-0 bg-brand-accent text-white text-xs font-bold px-2 py-1 m-3 rounded-md"
+                  >
+                    -20%
+                  </div>
                   <img
                     src="https://images.pexels.com/photos/6297518/pexels-photo-6297518.jpeg"
                     alt="Monstera Deliciosa"
                     class="w-full h-full object-cover"
                   />
-                </div>
-                <div class="p-4">
-                  <h3 class="text-xl font-medium text-brand-green">
-                    Monstera Deliciosa
-                  </h3>
-                  <p class="text-lg text-brand-accent font-bold mt-1">$45.00</p>
+                </a>
+                <div class="p-4 space-y-3">
+                  <div class="flex justify-between items-center text-xs">
+                    <p class="text-gray-500">Indoor Plant</p>
+                    <div class="flex items-center gap-1">
+                      <i class="fas fa-star text-yellow-500"></i
+                      ><span class="font-semibold">4.8</span>
+                    </div>
+                  </div>
+                  <div class="flex justify-between items-start gap-2">
+                    <a
+                      href="#"
+                      class="block font-medium text-brand-green hover:underline"
+                      >Monstera Deliciosa</a
+                    ><button class="text-xl text-red-500">
+                      <i class="far fa-heart"></i>
+                    </button>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-baseline gap-2">
+                      <p class="text-lg text-black font-bold">$36.00</p>
+                      <p class="text-sm text-gray-500 line-through">$45.00</p>
+                    </div>
+                    <button class="text-2xl text-brand-green">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
               <!-- Product Card 2 -->
               <div
-                class="bg-white group rounded-lg overflow-hidden border border-transparent hover:border-gray-200 hover:shadow-xl transition-all duration-300"
+                class="bg-white group rounded-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300"
               >
-                <div class="relative h-72 sm:h-80">
+                <a href="#" class="block relative h-72 sm:h-80">
+                  <!-- No Discount Badge -->
                   <img
                     src="https://images.pexels.com/photos/4503269/pexels-photo-4503269.jpeg"
                     alt="Gardening Trowel"
                     class="w-full h-full object-cover"
                   />
-                </div>
-                <div class="p-4">
-                  <h3 class="text-xl font-medium text-brand-green">
-                    Hand Trowel
-                  </h3>
-                  <p class="text-lg text-brand-accent font-bold mt-1">$15.00</p>
+                </a>
+                <div class="p-4 space-y-3">
+                  <div class="flex justify-between items-center text-xs">
+                    <p class="text-gray-500">Gardening Tool</p>
+                    <div class="flex items-center gap-1">
+                      <i class="fas fa-star text-yellow-500"></i
+                      ><span class="font-semibold">4.9</span>
+                    </div>
+                  </div>
+                  <div class="flex justify-between items-start gap-2">
+                    <a
+                      href="#"
+                      class="block font-medium text-brand-green hover:underline"
+                      >Hand Trowel</a
+                    ><button class="text-xl text-red-500">
+                      <i class="fas fa-heart"></i>
+                    </button>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-baseline gap-2">
+                      <p class="text-lg text-black font-bold">$15.00</p>
+                    </div>
+                    <button class="text-2xl text-brand-green">
+                      <i class="fas fa-cart-shopping"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
               <!-- Product Card 3 -->
               <div
-                class="bg-white group rounded-lg overflow-hidden border border-transparent hover:border-gray-200 hover:shadow-xl transition-all duration-300"
+                class="bg-white group rounded-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300"
               >
-                <div class="relative h-72 sm:h-80">
+                <a href="#" class="block relative h-72 sm:h-80">
+                  <div
+                    class="absolute top-0 left-0 bg-brand-accent text-white text-xs font-bold px-2 py-1 m-3 rounded-md"
+                  >
+                    -15%
+                  </div>
                   <img
                     src="https://images.pexels.com/photos/7245625/pexels-photo-7245625.jpeg"
                     alt="Fiddle Leaf Fig"
                     class="w-full h-full object-cover"
                   />
-                </div>
-                <div class="p-4">
-                  <h3 class="text-xl font-medium text-brand-green">
-                    Fiddle Leaf Fig
-                  </h3>
-                  <p class="text-lg text-brand-accent font-bold mt-1">$75.00</p>
+                </a>
+                <div class="p-4 space-y-3">
+                  <div class="flex justify-between items-center text-xs">
+                    <p class="text-gray-500">Indoor Plant</p>
+                    <div class="flex items-center gap-1">
+                      <i class="fas fa-star text-yellow-500"></i
+                      ><span class="font-semibold">4.7</span>
+                    </div>
+                  </div>
+                  <div class="flex justify-between items-start gap-2">
+                    <a
+                      href="#"
+                      class="block font-medium text-brand-green hover:underline"
+                      >Fiddle Leaf Fig</a
+                    ><button class="text-xl text-red-500">
+                      <i class="fas fa-heart"></i>
+                    </button>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-baseline gap-2">
+                      <p class="text-lg text-black font-bold">$63.75</p>
+                      <p class="text-sm text-gray-500 line-through">$75.00</p>
+                    </div>
+                    <button class="text-2xl text-brand-green">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
               <!-- Product Card 4 -->
               <div
-                class="bg-white group rounded-lg overflow-hidden border border-transparent hover:border-gray-200 hover:shadow-xl transition-all duration-300"
+                class="bg-white group rounded-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300"
               >
-                <div class="relative h-72 sm:h-80">
+                <a href="#" class="block relative h-72 sm:h-80">
+                  <div
+                    class="absolute top-0 left-0 bg-brand-accent text-white text-xs font-bold px-2 py-1 m-3 rounded-md"
+                  >
+                    -25%
+                  </div>
                   <img
                     src="https://images.pexels.com/photos/1383044/pexels-photo-1383044.jpeg"
                     alt="Snake Plant"
                     class="w-full h-full object-cover"
                   />
-                </div>
-                <div class="p-4">
-                  <h3 class="text-xl font-medium text-brand-green">
-                    Snake Plant
-                  </h3>
-                  <p class="text-lg text-brand-accent font-bold mt-1">$75.00</p>
+                </a>
+                <div class="p-4 space-y-3">
+                  <div class="flex justify-between items-center text-xs">
+                    <p class="text-gray-500">Succulent</p>
+                    <div class="flex items-center gap-1">
+                      <i class="fas fa-star text-yellow-500"></i
+                      ><span class="font-semibold">4.9</span>
+                    </div>
+                  </div>
+                  <div class="flex justify-between items-start gap-2">
+                    <a
+                      href="#"
+                      class="block font-medium text-brand-green hover:underline"
+                      >Snake Plant</a
+                    ><button class="text-xl text-red-500">
+                      <i class="far fa-heart"></i>
+                    </button>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-baseline gap-2">
+                      <p class="text-lg text-black font-bold">$26.25</p>
+                      <p class="text-sm text-gray-500 line-through">$35.00</p>
+                    </div>
+                    <button class="text-2xl text-brand-green">
+                      <i class="fas fa-cart-shopping"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
               <!-- Product Card 5 -->
               <div
-                class="bg-white group rounded-lg overflow-hidden border border-transparent hover:border-gray-200 hover:shadow-xl transition-all duration-300"
+                class="bg-white group rounded-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300"
               >
-                <div class="relative h-72 sm:h-80">
+                <a href="#" class="block relative h-72 sm:h-80">
+                  <!-- No Discount Badge -->
                   <img
-                    src="https://images.pexels.com/photos/7245625/pexels-photo-7245625.jpeg"
-                    alt="Fiddle Leaf Fig"
+                    src="https://images.pexels.com/photos/8989342/pexels-photo-8989342.jpeg"
+                    alt="Watering Can"
                     class="w-full h-full object-cover"
                   />
-                </div>
-                <div class="p-4">
-                  <h3 class="text-xl font-medium text-brand-green">
-                    Fiddle Leaf Fig
-                  </h3>
-                  <p class="text-lg text-brand-accent font-bold mt-1">$75.00</p>
+                </a>
+                <div class="p-4 space-y-3">
+                  <div class="flex justify-between items-center text-xs">
+                    <p class="text-gray-500">Equipment</p>
+                    <div class="flex items-center gap-1">
+                      <i class="fas fa-star text-yellow-500"></i
+                      ><span class="font-semibold">4.6</span>
+                    </div>
+                  </div>
+                  <div class="flex justify-between items-start gap-2">
+                    <a
+                      href="#"
+                      class="block font-medium text-brand-green hover:underline"
+                      >Watering Can</a
+                    ><button class="text-xl text-red-500">
+                      <i class="far fa-heart"></i>
+                    </button>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-baseline gap-2">
+                      <p class="text-lg text-black font-bold">$22.00</p>
+                    </div>
+                    <button class="text-2xl text-brand-green">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
               <!-- Product Card 6 -->
               <div
-                class="bg-white group rounded-lg overflow-hidden border border-transparent hover:border-gray-200 hover:shadow-xl transition-all duration-300"
+                class="bg-white group rounded-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300"
               >
-                <div class="relative h-72 sm:h-80">
+                <a href="#" class="block relative h-72 sm:h-80">
+                  <div
+                    class="absolute top-0 left-0 bg-brand-accent text-white text-xs font-bold px-2 py-1 m-3 rounded-md"
+                  >
+                    -30%
+                  </div>
                   <img
-                    src="https://images.pexels.com/photos/7245625/pexels-photo-7245625.jpeg"
-                    alt="Fiddle Leaf Fig"
+                    src="https://images.pexels.com/photos/824572/pexels-photo-824572.jpeg"
+                    alt="ZZ Plant"
                     class="w-full h-full object-cover"
                   />
-                </div>
-                <div class="p-4">
-                  <h3 class="text-xl font-medium text-brand-green">
-                    Fiddle Leaf Fig
-                  </h3>
-                  <p class="text-lg text-brand-accent font-bold mt-1">$75.00</p>
+                </a>
+                <div class="p-4 space-y-3">
+                  <div class="flex justify-between items-center text-xs">
+                    <p class="text-gray-500">Indoor Plant</p>
+                    <div class="flex items-center gap-1">
+                      <i class="fas fa-star text-yellow-500"></i
+                      ><span class="font-semibold">4.8</span>
+                    </div>
+                  </div>
+                  <div class="flex justify-between items-start gap-2">
+                    <a
+                      href="#"
+                      class="block font-medium text-brand-green hover:underline"
+                      >ZZ Plant</a
+                    ><button class="text-xl text-red-500">
+                      <i class="fas fa-heart"></i>
+                    </button>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-baseline gap-2">
+                      <p class="text-lg text-black font-bold">$28.00</p>
+                      <p class="text-sm text-gray-500 line-through">$40.00</p>
+                    </div>
+                    <button class="text-2xl text-brand-green">
+                      <i class="fas fa-cart-shopping"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
+            <!-- END OF PRODUCT GRID REPLACEMENT -->
 
             <!-- Pagination -->
             <div class="flex justify-center mt-12">
@@ -440,19 +594,16 @@
                 <a
                   href="#"
                   class="px-4 py-2 border rounded-md hover:bg-gray-200 transition-colors"
-                  ><i class="fas fa-chevron-left"></i
-                ></a>
-                <a
+                  ><i class="fas fa-chevron-left"></i></a
+                ><a
                   href="#"
                   class="px-4 py-2 border rounded-md bg-brand-green text-white"
                   >1</a
-                >
-                <a
+                ><a
                   href="#"
                   class="px-4 py-2 border rounded-md hover:bg-gray-200 transition-colors"
                   >2</a
-                >
-                <a
+                ><a
                   href="#"
                   class="px-4 py-2 border rounded-md hover:bg-gray-200 transition-colors"
                   ><i class="fas fa-chevron-right"></i
