@@ -4,23 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shop - Virtual Plant Nursery</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <!-- Icon Library -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
 
     <script>
-      // Custom Tailwind Config
       tailwind.config = {
         theme: {
           extend: {
@@ -40,31 +36,30 @@
     </script>
   </head>
 
-  <body class="bg-brand-off-white font-sans text-brand-green-light">
-    <!-- 1. HEADER -->
+  <body class="bg-white font-sans text-brand-green-light">
+    <!-- 1. HEADER (Remains the same for consistency) -->
     <header class="bg-brand-green sticky top-0 z-50">
       <div class="container mx-auto px-4">
         <div class="flex items-center justify-between h-20">
-          <!-- Mobile Menu Toggle Button -->
           <div class="lg:hidden">
             <button id="mobile-menu-open-button" class="text-white">
               <i class="fas fa-bars fa-lg"></i>
             </button>
           </div>
-
-          <!-- Logo -->
           <div class="text-center lg:text-left">
-            <a href="#" class="font-serif text-3xl text-white">Planto.</a>
+            <a href="index.html" class="font-serif text-3xl text-white"
+              >Planto.</a
+            >
           </div>
-
-          <!-- Desktop Navigation -->
           <nav class="hidden lg:flex">
             <ul class="flex items-center space-x-8 text-lg text-white">
               <li>
                 <a href="index.html" class="hover:text-brand-accent">Home</a>
               </li>
               <li>
-                <a href="shoppingPage.html" class="hover:text-brand-accent"
+                <a
+                  href="shoppingPage.html"
+                  class="text-brand-accent font-semibold"
                   >Shop</a
                 >
               </li>
@@ -72,14 +67,12 @@
                 <a href="aboutUs.html" class="hover:text-brand-accent">About</a>
               </li>
               <li>
-                <a href="contactUs.html" class="text-brand-accent font-semibold"
+                <a href="contactUs.html" class="hover:text-brand-accent"
                   >Contact</a
                 >
               </li>
             </ul>
           </nav>
-
-          <!-- Header Icons -->
           <div class="flex items-center space-x-4">
             <a href="#" class="text-white hover:text-brand-accent"
               ><i class="fas fa-search fa-lg"></i
@@ -97,21 +90,17 @@
           </div>
         </div>
       </div>
-
-      <!-- Mobile Menu Panel (Hidden by default) -->
+      <!-- Mobile Menu Panel -->
       <div
         id="mobile-menu"
         class="hidden fixed inset-0 z-40 bg-brand-green bg-opacity-95 backdrop-blur-sm"
       >
         <div class="container mx-auto p-4 h-full flex flex-col">
-          <!-- Top section with close button -->
           <div class="flex justify-end mb-8">
             <button id="mobile-menu-close-button" class="text-white">
               <i class="fas fa-times fa-2x"></i>
             </button>
           </div>
-
-          <!-- Centered Navigation Links -->
           <nav class="flex-grow flex items-center justify-center">
             <ul
               class="flex flex-col items-center space-y-8 text-4xl font-serif text-white"
@@ -128,7 +117,7 @@
                 <a href="aboutUs.html" class="hover:text-brand-accent">About</a>
               </li>
               <li>
-                <a href="contactUs.html" class="text-brand-accent font-semibold"
+                <a href="contactUs.html" class="hover:text-brand-accent"
                   >Contact</a
                 >
               </li>
@@ -138,410 +127,345 @@
       </div>
     </header>
 
-    <main>
-      <!-- 2. SHOP HEADER -->
-      <section
-        class="bg-white py-8 shadow-sm"
-        style="background-color: rgb(167, 212, 200)"
-      >
-        <div class="container mx-auto px-4">
-          <h1 class="text-4xl font-serif text-brand-green">Shop All</h1>
-          <div class="text-md mt-1">
-            <a href="index.html" class="hover:text-brand-accent">Home</a>
-            <span class="mx-2 text-gray-400">/</span>
-            <span>Shop</span>
+    <!-- START: REPLACE THE ENTIRE <main> SECTION WITH THIS -->
+    <main class="bg-brand-off-white">
+      <div class="container mx-auto px-4 py-8 sm:py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-4 lg:gap-12">
+          <!-- ===== LEFT SIDEBAR - FILTERS (Visible on large screens) ===== -->
+          <aside class="hidden lg:block lg:col-span-1">
+            <div class="sticky top-28">
+              <!-- Search Bar -->
+              <div class="relative mb-6">
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  class="w-full py-2 pl-4 pr-10 border rounded-md focus:outline-none focus:ring-2 focus:ring-brand-accent"
+                />
+                <button
+                  class="absolute right-0 top-0 h-full px-3 text-gray-500 hover:text-brand-green"
+                >
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+
+              <h2 class="font-serif text-3xl text-brand-green mb-6">Filters</h2>
+              <div class="space-y-6">
+                <!-- Category Filter Accordion -->
+                <div class="border-b border-gray-200 pb-6">
+                  <button
+                    data-accordion-button
+                    class="w-full flex justify-between items-center text-left"
+                  >
+                    <h3 class="font-semibold text-lg text-brand-green">
+                      Categories
+                    </h3>
+                    <i
+                      class="fas fa-plus transition-transform duration-300"
+                    ></i>
+                  </button>
+                  <div class="mt-4 space-y-3 hidden" data-accordion-panel>
+                    <label class="flex items-center"
+                      ><input
+                        type="checkbox"
+                        class="h-4 w-4 rounded accent-brand-green"
+                      /><span class="ml-3">Indoor Plants</span></label
+                    >
+                    <label class="flex items-center"
+                      ><input
+                        type="checkbox"
+                        class="h-4 w-4 rounded accent-brand-green"
+                        checked
+                      /><span class="ml-3">Outdoor Plants</span></label
+                    >
+                    <label class="flex items-center"
+                      ><input
+                        type="checkbox"
+                        class="h-4 w-4 rounded accent-brand-green"
+                      /><span class="ml-3">Succulents</span></label
+                    >
+                  </div>
+                </div>
+
+                <!-- Price Range Filter Accordion -->
+                <div class="border-b border-gray-200 pb-6">
+                  <button
+                    data-accordion-button
+                    class="w-full flex justify-between items-center text-left"
+                  >
+                    <h3 class="font-semibold text-lg text-brand-green">
+                      Price Range
+                    </h3>
+                    <i
+                      class="fas fa-plus transition-transform duration-300"
+                    ></i>
+                  </button>
+                  <div class="mt-4 hidden" data-accordion-panel>
+                    <div class="flex items-center justify-between space-x-3">
+                      <div class="w-1/2">
+                        <label for="min-price" class="text-sm">Min</label>
+                        <input
+                          type="number"
+                          id="min-price"
+                          placeholder="$0"
+                          class="w-full mt-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-brand-accent"
+                        />
+                      </div>
+                      <div class="w-1/2">
+                        <label for="max-price" class="text-sm">Max</label>
+                        <input
+                          type="number"
+                          id="max-price"
+                          placeholder="$500"
+                          class="w-full mt-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-brand-accent"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  class="w-full py-3 px-4 rounded-md text-lg font-bold text-white bg-brand-green hover:bg-brand-green-light transition-all"
+                >
+                  Apply Filters
+                </button>
+              </div>
+            </div>
+          </aside>
+
+          <!-- ===== RIGHT SIDE - PRODUCTS ===== -->
+          <div class="lg:col-span-3">
+            <!-- Top Bar: Mobile Filters & Sorting -->
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+              <p class="text-gray-600 w-full sm:w-auto">
+                Showing 1-12 of 80 products
+              </p>
+
+              <div class="flex items-center gap-4 w-full sm:w-auto">
+                <!-- Mobile Filter Button -->
+                <button
+                  id="mobile-filter-open-button"
+                  class="lg:hidden flex-1 sm:flex-initial py-2 px-4 border rounded-md flex items-center justify-center"
+                >
+                  <i class="fas fa-filter mr-2"></i>
+                  <span>Filters</span>
+                </button>
+
+                <!-- Sort By Dropdown Container -->
+                <div
+                  class="flex-1 sm:flex-initial relative"
+                  id="custom-sort-dropdown"
+                >
+                  <!-- The button that shows the current selection -->
+                  <button
+                    id="sort-dropdown-button"
+                    class="w-full border rounded-md p-2 flex items-center justify-between bg-white focus:outline-none focus:ring-2 focus:ring-brand-accent"
+                  >
+                    <span id="sort-dropdown-label" class="text-gray-700"
+                      >Sort by: Latest</span
+                    >
+                    <i
+                      class="fas fa-chevron-down text-xs text-gray-500 transition-transform duration-300"
+                    ></i>
+                  </button>
+
+                  <!-- The dropdown panel with the options -->
+                  <div
+                    id="sort-dropdown-panel"
+                    class="hidden absolute right-0 mt-1 w-full bg-white border rounded-md shadow-lg z-20"
+                  >
+                    <ul class="py-1">
+                      <!-- Each li is an option -->
+                      <li
+                        data-value="Sort by: Latest"
+                        class="px-4 py-2 text-sm text-gray-700 hover:bg-brand-off-white cursor-pointer flex justify-between items-center"
+                      >
+                        Latest <i class="fas fa-check text-brand-green"></i>
+                      </li>
+                      <li
+                        data-value="Sort by: Price (Low to High)"
+                        class="px-4 py-2 text-sm text-gray-700 hover:bg-brand-off-white cursor-pointer flex justify-between items-center"
+                      >
+                        Price (Low to High)
+                        <i class="fas fa-check text-brand-green hidden"></i>
+                      </li>
+                      <li
+                        data-value="Sort by: Price (High to Low)"
+                        class="px-4 py-2 text-sm text-gray-700 hover:bg-brand-off-white cursor-pointer flex justify-between items-center"
+                      >
+                        Price (High to Low)
+                        <i class="fas fa-check text-brand-green hidden"></i>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Active Filters Bar -->
+            <div class="flex items-center flex-wrap gap-2 mb-6">
+              <h4 class="font-semibold mr-2">Active:</h4>
+              <!-- Example Active Filter Tag -->
+              <span
+                class="flex items-center bg-brand-green text-white text-sm font-medium pl-3 pr-2 py-1 rounded-full"
+              >
+                Outdoor Plants
+                <button class="ml-2 text-white hover:text-brand-accent">
+                  <i class="fas fa-times text-xs"></i>
+                </button>
+              </span>
+              <button
+                class="text-sm text-gray-500 hover:text-red-500 underline ml-auto"
+              >
+                Clear All
+              </button>
+            </div>
+
+            <!-- Product Grid -->
+            <div
+              class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8"
+            >
+              <!-- Product Card 1 -->
+              <div
+                class="bg-white group rounded-lg overflow-hidden border border-transparent hover:border-gray-200 hover:shadow-xl transition-all duration-300"
+              >
+                <div class="relative h-72 sm:h-80">
+                  <img
+                    src="https://images.pexels.com/photos/6297518/pexels-photo-6297518.jpeg"
+                    alt="Monstera Deliciosa"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="p-4">
+                  <h3 class="text-xl font-medium text-brand-green">
+                    Monstera Deliciosa
+                  </h3>
+                  <p class="text-lg text-brand-accent font-bold mt-1">$45.00</p>
+                </div>
+              </div>
+              <!-- Product Card 2 -->
+              <div
+                class="bg-white group rounded-lg overflow-hidden border border-transparent hover:border-gray-200 hover:shadow-xl transition-all duration-300"
+              >
+                <div class="relative h-72 sm:h-80">
+                  <img
+                    src="https://images.pexels.com/photos/4503269/pexels-photo-4503269.jpeg"
+                    alt="Gardening Trowel"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="p-4">
+                  <h3 class="text-xl font-medium text-brand-green">
+                    Hand Trowel
+                  </h3>
+                  <p class="text-lg text-brand-accent font-bold mt-1">$15.00</p>
+                </div>
+              </div>
+              <!-- Product Card 3 -->
+              <div
+                class="bg-white group rounded-lg overflow-hidden border border-transparent hover:border-gray-200 hover:shadow-xl transition-all duration-300"
+              >
+                <div class="relative h-72 sm:h-80">
+                  <img
+                    src="https://images.pexels.com/photos/7245625/pexels-photo-7245625.jpeg"
+                    alt="Fiddle Leaf Fig"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="p-4">
+                  <h3 class="text-xl font-medium text-brand-green">
+                    Fiddle Leaf Fig
+                  </h3>
+                  <p class="text-lg text-brand-accent font-bold mt-1">$75.00</p>
+                </div>
+              </div>
+              <!-- Product Card 4 -->
+              <div
+                class="bg-white group rounded-lg overflow-hidden border border-transparent hover:border-gray-200 hover:shadow-xl transition-all duration-300"
+              >
+                <div class="relative h-72 sm:h-80">
+                  <img
+                    src="https://images.pexels.com/photos/1383044/pexels-photo-1383044.jpeg"
+                    alt="Snake Plant"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="p-4">
+                  <h3 class="text-xl font-medium text-brand-green">
+                    Snake Plant
+                  </h3>
+                  <p class="text-lg text-brand-accent font-bold mt-1">$75.00</p>
+                </div>
+              </div>
+              <!-- Product Card 5 -->
+              <div
+                class="bg-white group rounded-lg overflow-hidden border border-transparent hover:border-gray-200 hover:shadow-xl transition-all duration-300"
+              >
+                <div class="relative h-72 sm:h-80">
+                  <img
+                    src="https://images.pexels.com/photos/7245625/pexels-photo-7245625.jpeg"
+                    alt="Fiddle Leaf Fig"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="p-4">
+                  <h3 class="text-xl font-medium text-brand-green">
+                    Fiddle Leaf Fig
+                  </h3>
+                  <p class="text-lg text-brand-accent font-bold mt-1">$75.00</p>
+                </div>
+              </div>
+              <!-- Product Card 6 -->
+              <div
+                class="bg-white group rounded-lg overflow-hidden border border-transparent hover:border-gray-200 hover:shadow-xl transition-all duration-300"
+              >
+                <div class="relative h-72 sm:h-80">
+                  <img
+                    src="https://images.pexels.com/photos/7245625/pexels-photo-7245625.jpeg"
+                    alt="Fiddle Leaf Fig"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="p-4">
+                  <h3 class="text-xl font-medium text-brand-green">
+                    Fiddle Leaf Fig
+                  </h3>
+                  <p class="text-lg text-brand-accent font-bold mt-1">$75.00</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex justify-center mt-12">
+              <nav class="flex items-center space-x-2">
+                <a
+                  href="#"
+                  class="px-4 py-2 border rounded-md hover:bg-gray-200 transition-colors"
+                  ><i class="fas fa-chevron-left"></i
+                ></a>
+                <a
+                  href="#"
+                  class="px-4 py-2 border rounded-md bg-brand-green text-white"
+                  >1</a
+                >
+                <a
+                  href="#"
+                  class="px-4 py-2 border rounded-md hover:bg-gray-200 transition-colors"
+                  >2</a
+                >
+                <a
+                  href="#"
+                  class="px-4 py-2 border rounded-md hover:bg-gray-200 transition-colors"
+                  ><i class="fas fa-chevron-right"></i
+                ></a>
+              </nav>
+            </div>
           </div>
         </div>
-      </section>
-
-      <!-- 3. FILTERS & PRODUCTS SECTION -->
-      <section class="py-12 sm:py-16">
-        <div class="container mx-auto px-4">
-          <!-- Filter Bar -->
-          <div
-            class="bg-white p-4 shadow-sm mb-8 rounded-lg flex flex-col sm:flex-row items-center gap-4"
-          >
-            <!-- Search Box -->
-            <div class="relative flex-grow w-full sm:w-auto">
-              <input
-                type="text"
-                placeholder="Search products..."
-                class="w-full py-2 pl-10 pr-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-brand-accent"
-              />
-              <i
-                class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
-              ></i>
-            </div>
-
-            <!-- Filter Dropdowns -->
-            <div class="flex items-center gap-4 w-full sm:w-auto">
-              <!-- Category Filter -->
-              <div class="relative w-1/2 sm:w-auto" data-dropdown>
-                <button
-                  class="w-full border rounded-md px-4 py-2 flex items-center justify-between"
-                  data-dropdown-button
-                >
-                  <span>Categories</span>
-                  <i
-                    class="fas fa-chevron-right ml-2 transition-transform duration-300"
-                  ></i>
-                </button>
-                <div
-                  class="hidden absolute right-0 mt-2 w-64 bg-white border rounded-lg shadow-xl z-20"
-                >
-                  <div class="p-4 space-y-2">
-                    <label class="flex items-center"
-                      ><input
-                        type="checkbox"
-                        class="h-4 w-4 rounded accent-brand-green"
-                      />
-                      <span class="ml-2">Indoor Plants</span></label
-                    >
-                    <label class="flex items-center"
-                      ><input
-                        type="checkbox"
-                        class="h-4 w-4 rounded accent-brand-green"
-                      />
-                      <span class="ml-2">Outdoor Plants</span></label
-                    >
-                    <label class="flex items-center"
-                      ><input
-                        type="checkbox"
-                        class="h-4 w-4 rounded accent-brand-green"
-                      />
-                      <span class="ml-2">Succulents</span></label
-                    >
-                    <label class="flex items-center"
-                      ><input
-                        type="checkbox"
-                        class="h-4 w-4 rounded accent-brand-green"
-                      />
-                      <span class="ml-2">Gardening Tools</span></label
-                    >
-                    <label class="flex items-center"
-                      ><input
-                        type="checkbox"
-                        class="h-4 w-4 rounded accent-brand-green"
-                      />
-                      <span class="ml-2">Pots & Planters</span></label
-                    >
-                  </div>
-                  <div class="p-2 bg-gray-50 border-t flex justify-end gap-2">
-                    <!-- Cancel Button: Swaps gray text/transparent bg with gray bg/white text -->
-                    <button
-                      data-close-dropdown
-                      class="px-4 py-1 rounded-md text-sm font-semibold text-gray-600 border border-gray-300 bg-white hover:bg-gray-600 hover:text-white transition-all duration-200"
-                    >
-                      Cancel
-                    </button>
-
-                    <!-- Apply Button: Swaps green bg/white text with white bg/green text -->
-                    <button
-                      data-close-dropdown
-                      class="px-4 py-1 rounded-md text-sm font-semibold bg-brand-green text-white border border-transparent hover:bg-white hover:text-brand-green hover:border-brand-green transition-all duration-200"
-                    >
-                      Apply
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Price Filter -->
-              <div class="relative w-1/2 sm:w-auto" data-dropdown>
-                <button
-                  class="w-full border rounded-md px-4 py-2 flex items-center justify-between"
-                  data-dropdown-button
-                >
-                  <span>Price</span>
-                  <i
-                    class="fas fa-chevron-right ml-2 transition-transform duration-300"
-                  ></i>
-                </button>
-                <div
-                  class="hidden absolute right-0 mt-2 w-64 bg-white border rounded-lg shadow-xl z-20"
-                >
-                  <div class="p-4 space-y-2">
-                    <label class="flex items-center"
-                      ><input
-                        type="checkbox"
-                        class="h-4 w-4 rounded accent-brand-green"
-                      />
-                      <span class="ml-2">$0 - $25</span></label
-                    >
-                    <label class="flex items-center"
-                      ><input
-                        type="checkbox"
-                        class="h-4 w-4 rounded accent-brand-green"
-                      />
-                      <span class="ml-2">$25 - $50</span></label
-                    >
-                    <label class="flex items-center"
-                      ><input
-                        type="checkbox"
-                        class="h-4 w-4 rounded accent-brand-green"
-                      />
-                      <span class="ml-2">$50 - $100</span></label
-                    >
-                    <label class="flex items-center"
-                      ><input
-                        type="checkbox"
-                        class="h-4 w-4 rounded accent-brand-green"
-                      />
-                      <span class="ml-2">$100+</span></label
-                    >
-                  </div>
-                  <div class="p-2 bg-gray-50 border-t flex justify-end gap-2">
-                    <!-- Cancel Button: Swaps gray text/transparent bg with gray bg/white text -->
-                    <button
-                      data-close-dropdown
-                      class="px-4 py-1 rounded-md text-sm font-semibold text-gray-600 border border-gray-300 bg-white hover:bg-gray-600 hover:text-white transition-all duration-200"
-                    >
-                      Cancel
-                    </button>
-
-                    <!-- Apply Button: Swaps green bg/white text with white bg/green text -->
-                    <button
-                      data-close-dropdown
-                      class="px-4 py-1 rounded-md text-sm font-semibold bg-brand-green text-white border border-transparent hover:bg-white hover:text-brand-green hover:border-brand-green transition-all duration-200"
-                    >
-                      Apply
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Product Grid -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Products will be dynamically inserted here -->
-            <!-- Product 1 -->
-            <div class="bg-white shadow-lg group">
-              <div class="relative overflow-hidden">
-                <img
-                  src="https://images.pexels.com/photos/6297518/pexels-photo-6297518.jpeg"
-                  class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
-                  alt="Monstera Deliciosa"
-                />
-                <div
-                  class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-                >
-                  <a
-                    href="#"
-                    class="bg-white text-brand-green py-2 px-4 font-semibold"
-                    >Add to Cart</a
-                  >
-                </div>
-              </div>
-              <div class="p-4 text-center">
-                <h3 class="text-xl font-medium">Monstera Deliciosa</h3>
-                <p class="text-lg text-brand-accent font-bold mt-1">$45.00</p>
-              </div>
-            </div>
-            <!-- Product 2 -->
-            <div class="bg-white shadow-lg group">
-              <div class="relative overflow-hidden">
-                <img
-                  src="https://images.pexels.com/photos/4503269/pexels-photo-4503269.jpeg"
-                  class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
-                  alt="Gardening Trowel"
-                />
-                <div
-                  class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-                >
-                  <a
-                    href="#"
-                    class="bg-white text-brand-green py-2 px-4 font-semibold"
-                    >Add to Cart</a
-                  >
-                </div>
-              </div>
-              <div class="p-4 text-center">
-                <h3 class="text-xl font-medium">Hand Trowel</h3>
-                <p class="text-lg text-brand-accent font-bold mt-1">$15.00</p>
-              </div>
-            </div>
-            <!-- Product 3 -->
-            <div class="bg-white shadow-lg group">
-              <div class="relative overflow-hidden">
-                <img
-                  src="https://images.pexels.com/photos/7245625/pexels-photo-7245625.jpeg"
-                  class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
-                  alt="Fiddle Leaf Fig"
-                />
-                <div
-                  class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-                >
-                  <a
-                    href="#"
-                    class="bg-white text-brand-green py-2 px-4 font-semibold"
-                    >Add to Cart</a
-                  >
-                </div>
-              </div>
-              <div class="p-4 text-center">
-                <h3 class="text-xl font-medium">Fiddle Leaf Fig</h3>
-                <p class="text-lg text-brand-accent font-bold mt-1">$75.00</p>
-              </div>
-            </div>
-            <!-- Product 4 -->
-            <div class="bg-white shadow-lg group">
-              <div class="relative overflow-hidden">
-                <img
-                  src="https://images.pexels.com/photos/1383044/pexels-photo-1383044.jpeg"
-                  class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
-                  alt="Snake Plant"
-                />
-                <div
-                  class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-                >
-                  <a
-                    href="#"
-                    class="bg-white text-brand-green py-2 px-4 font-semibold"
-                    >Add to Cart</a
-                  >
-                </div>
-              </div>
-              <div class="p-4 text-center">
-                <h3 class="text-xl font-medium">Snake Plant</h3>
-                <p class="text-lg text-brand-accent font-bold mt-1">$35.00</p>
-              </div>
-            </div>
-            <!-- Product 5 -->
-            <div class="bg-white shadow-lg group">
-              <div class="relative overflow-hidden">
-                <img
-                  src="https://images.pexels.com/photos/8989342/pexels-photo-8989342.jpeg"
-                  class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
-                  alt="Watering Can"
-                />
-                <div
-                  class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-                >
-                  <a
-                    href="#"
-                    class="bg-white text-brand-green py-2 px-4 font-semibold"
-                    >Add to Cart</a
-                  >
-                </div>
-              </div>
-              <div class="p-4 text-center">
-                <h3 class="text-xl font-medium">Watering Can</h3>
-                <p class="text-lg text-brand-accent font-bold mt-1">$22.00</p>
-              </div>
-            </div>
-            <!-- Product 6 -->
-            <div class="bg-white shadow-lg group">
-              <div class="relative overflow-hidden">
-                <img
-                  src="https://images.pexels.com/photos/824572/pexels-photo-824572.jpeg"
-                  class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
-                  alt="ZZ Plant"
-                />
-                <div
-                  class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-                >
-                  <a
-                    href="#"
-                    class="bg-white text-brand-green py-2 px-4 font-semibold"
-                    >Add to Cart</a
-                  >
-                </div>
-              </div>
-              <div class="p-4 text-center">
-                <h3 class="text-xl font-medium">ZZ Plant</h3>
-                <p class="text-lg text-brand-accent font-bold mt-1">$40.00</p>
-              </div>
-            </div>
-            <!-- Product 7 -->
-            <div class="bg-white shadow-lg group">
-              <div class="relative overflow-hidden">
-                <img
-                  src="https://images.pexels.com/photos/1777813/pexels-photo-1777813.jpeg"
-                  class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
-                  alt="Pothos Plant"
-                />
-                <div
-                  class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-                >
-                  <a
-                    href="#"
-                    class="bg-white text-brand-green py-2 px-4 font-semibold"
-                    >Add to Cart</a
-                  >
-                </div>
-              </div>
-              <div class="p-4 text-center">
-                <h3 class="text-xl font-medium">Pothos Plant</h3>
-                <p class="text-lg text-brand-accent font-bold mt-1">$20.00</p>
-              </div>
-            </div>
-            <!-- Product 8 -->
-            <div class="bg-white shadow-lg group">
-              <div class="relative overflow-hidden">
-                <img
-                  src="https://images.pexels.com/photos/9324348/pexels-photo-9324348.jpeg"
-                  class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
-                  alt="Gardening Gloves"
-                />
-                <div
-                  class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-                >
-                  <a
-                    href="#"
-                    class="bg-white text-brand-green py-2 px-4 font-semibold"
-                    >Add to Cart</a
-                  >
-                </div>
-              </div>
-              <div class="p-4 text-center">
-                <h3 class="text-xl font-medium">Gardening Gloves</h3>
-                <p class="text-lg text-brand-accent font-bold mt-1">$18.00</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Pagination -->
-          <div class="flex justify-center mt-16">
-            <nav class="flex items-center space-x-2">
-              <a
-                href="#"
-                class="px-4 py-2 border rounded-md hover:bg-gray-200 transition-colors"
-                ><i class="fas fa-chevron-left"></i
-              ></a>
-              <a
-                href="#"
-                class="px-4 py-2 border rounded-md bg-brand-green text-white"
-                >1</a
-              >
-              <a
-                href="#"
-                class="px-4 py-2 border rounded-md hover:bg-gray-200 transition-colors"
-                >2</a
-              >
-              <a
-                href="#"
-                class="px-4 py-2 border rounded-md hover:bg-gray-200 transition-colors"
-                >3</a
-              >
-              <span>...</span>
-              <a
-                href="#"
-                class="px-4 py-2 border rounded-md hover:bg-gray-200 transition-colors"
-                >10</a
-              >
-              <a
-                href="#"
-                class="px-4 py-2 border rounded-md hover:bg-gray-200 transition-colors"
-                ><i class="fas fa-chevron-right"></i
-              ></a>
-            </nav>
-          </div>
-        </div>
-      </section>
+      </div>
     </main>
+    <!-- END OF MAIN REPLACEMENT -->
 
-    <!-- 6. FOOTER -->
+    <!-- 6. FOOTER (Remains the same) -->
     <footer class="bg-brand-green text-white">
       <div class="container mx-auto px-4 py-16">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -609,82 +533,159 @@
       </div>
       <div class="border-t border-brand-green-light py-6">
         <p class="text-center text-gray-400">
-          &copy; 2025 Planto. All Rights Reserved.
+          © 2025 Planto. All Rights Reserved.
         </p>
       </div>
     </footer>
 
-    <!-- JavaScript for Dropdown Logic -->
+    <!-- All JavaScript -->
+    <!-- START: REPLACE THE ENTIRE SCRIPT BLOCK AT THE END OF THE BODY WITH THIS -->
     <script>
-      const openButton = document.getElementById("mobile-menu-open-button");
-      const closeButton = document.getElementById("mobile-menu-close-button");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const navLinks = mobileMenu.querySelectorAll("a");
-
-      // Function to open the menu
-      function openMenu() {
-        mobileMenu.classList.remove("hidden");
-        document.body.style.overflow = "hidden"; // Prevents scrolling of the background page
-      }
-
-      // Function to close the menu
-      function closeMenu() {
-        mobileMenu.classList.add("hidden");
-        document.body.style.overflow = ""; // Re-enables scrolling
-      }
-
-      // Event Listeners
-      openButton.addEventListener("click", openMenu);
-      closeButton.addEventListener("click", closeMenu);
-
-      // Also close menu when a navigation link is clicked
-      navLinks.forEach((link) => {
-        link.addEventListener("click", closeMenu);
-      });
-      document.addEventListener("click", (e) => {
-        const isDropdownButton = e.target.matches("[data-dropdown-button]");
-        // Ignore clicks on dropdown buttons
-        if (isDropdownButton) return;
-
-        let currentDropdown;
-        if (isDropdownButton) {
-          currentDropdown = e.target.closest("[data-dropdown]");
-          currentDropdown.classList.toggle("active");
-        }
-
-        // Close all dropdowns that are not the current one
-        document
-          .querySelectorAll("[data-dropdown].active")
-          .forEach((dropdown) => {
-            if (dropdown === currentDropdown) return;
-            dropdown.classList.remove("active");
-            const icon = dropdown.querySelector(".fa-chevron-right");
-            if (icon) icon.classList.remove("rotate-90");
+      // --- Mobile Header Menu Logic ---
+      const headerMenuOpenBtn = document.getElementById(
+        "mobile-menu-open-button"
+      );
+      const headerMenuCloseBtn = document.getElementById(
+        "mobile-menu-close-button"
+      );
+      const headerMenu = document.getElementById("mobile-menu");
+      if (headerMenu) {
+        headerMenuOpenBtn.addEventListener("click", () => {
+          headerMenu.classList.remove("hidden");
+          document.body.style.overflow = "hidden";
+        });
+        headerMenuCloseBtn.addEventListener("click", () => {
+          headerMenu.classList.add("hidden");
+          document.body.style.overflow = "";
+        });
+        headerMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            headerMenu.classList.add("hidden");
+            document.body.style.overflow = "";
           });
-      });
+        });
+      }
 
-      // Add event listener to each dropdown button
-      document.querySelectorAll("[data-dropdown-button]").forEach((button) => {
-        button.addEventListener("click", () => {
-          const dropdown = button.closest("[data-dropdown]");
-          const dropdownContent = dropdown.querySelector(".hidden");
-          const icon = button.querySelector(".fa-chevron-right");
+      // --- REUSABLE Filter Accordion Logic ---
+      function attachAccordionListeners(container) {
+        const accordionButtons = container.querySelectorAll(
+          "[data-accordion-button]"
+        );
+        accordionButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const panel = button.nextElementSibling;
+            const icon = button.querySelector("i");
+            panel.classList.toggle("hidden");
+            if (panel.classList.contains("hidden")) {
+              icon.classList.remove("fa-minus", "rotate-180");
+              icon.classList.add("fa-plus");
+            } else {
+              icon.classList.remove("fa-plus");
+              icon.classList.add("fa-minus", "rotate-180");
+            }
+          });
+        });
+      }
 
-          dropdownContent.classList.toggle("hidden");
-          icon.classList.toggle("rotate-90");
+      // Attach listeners to the main document for the DESKTOP view
+      attachAccordionListeners(document);
 
-          // Add a listener to close when clicking outside
-          if (!dropdownContent.classList.contains("hidden")) {
-            document.addEventListener("mousedown", function close(e) {
-              if (!dropdown.contains(e.target)) {
-                dropdownContent.classList.add("hidden");
-                icon.classList.remove("rotate-90");
-                document.removeEventListener("mousedown", close);
-              }
-            });
+      // --- Mobile Filter Panel Logic ---
+      const filterMenuOpenBtn = document.getElementById(
+        "mobile-filter-open-button"
+      );
+      const filterMenuNode = document.querySelector(
+        ".lg\\:col-span-1 > .sticky"
+      );
+
+      if (filterMenuOpenBtn && filterMenuNode) {
+        // Create the mobile filter panel dynamically
+        const mobileFilterPanel = document.createElement("div");
+        mobileFilterPanel.id = "mobile-filter-menu";
+        mobileFilterPanel.className =
+          "hidden fixed inset-0 bg-black bg-opacity-50 z-50";
+        mobileFilterPanel.innerHTML = `
+            <div class="absolute top-0 right-0 h-full w-full max-w-sm bg-brand-off-white shadow-xl p-6 overflow-y-auto">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="font-serif text-3xl text-brand-green">Filters</h2>
+                    <button id="mobile-filter-close-button" class="text-gray-500 hover:text-brand-green"><i class="fas fa-times fa-2x"></i></button>
+                </div>
+                <div id="mobile-filter-content"></div>
+            </div>
+        `;
+        document.body.appendChild(mobileFilterPanel);
+
+        // Clone the desktop sidebar content into the mobile panel
+        const mobileFilterContent = document.getElementById(
+          "mobile-filter-content"
+        );
+        mobileFilterContent.appendChild(filterMenuNode.cloneNode(true));
+
+        // **THE FIX**: Attach the accordion listeners to the NEWLY CLONED mobile content
+        attachAccordionListeners(mobileFilterContent);
+
+        // Now set up the open/close logic for the mobile panel
+        const filterMenu = document.getElementById("mobile-filter-menu");
+        const filterMenuCloseBtn = document.getElementById(
+          "mobile-filter-close-button"
+        );
+
+        filterMenuOpenBtn.addEventListener("click", () => {
+          filterMenu.classList.remove("hidden");
+          document.body.style.overflow = "hidden";
+        });
+
+        filterMenuCloseBtn.addEventListener("click", () => {
+          filterMenu.classList.add("hidden");
+          document.body.style.overflow = "";
+        });
+
+        filterMenu.addEventListener("click", (e) => {
+          if (e.target.id === "mobile-filter-menu") {
+            filterMenu.classList.add("hidden");
+            document.body.style.overflow = "";
           }
         });
+      }
+
+      // Custom dropdown logic
+      const dropdown = document.getElementById("custom-sort-dropdown");
+      const dropdownButton = document.getElementById("sort-dropdown-button");
+      const dropdownPanel = document.getElementById("sort-dropdown-panel");
+      const dropdownLabel = document.getElementById("sort-dropdown-label");
+      const dropdownOptions = dropdownPanel.querySelectorAll("li");
+      const dropdownIcon = dropdownButton.querySelector("i");
+
+      dropdownButton.addEventListener("click", () => {
+        dropdownPanel.classList.toggle("hidden");
+        dropdownIcon.classList.toggle("rotate-180");
+      });
+
+      dropdownOptions.forEach((option) => {
+        option.addEventListener("click", () => {
+          // Update the button text
+          dropdownLabel.textContent = option.dataset.value;
+
+          // Update the checkmark visibility
+          dropdownOptions.forEach((opt) =>
+            opt.querySelector("i").classList.add("hidden")
+          ); // Hide all checks
+          option.querySelector("i").classList.remove("hidden"); // Show check on selected
+
+          // Close the dropdown
+          dropdownPanel.classList.add("hidden");
+          dropdownIcon.classList.remove("rotate-180");
+        });
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!dropdown.contains(e.target)) {
+          dropdownPanel.classList.add("hidden");
+          dropdownIcon.classList.remove("rotate-180");
+        }
       });
     </script>
+    <!-- END OF SCRIPT -->
   </body>
 </html>
