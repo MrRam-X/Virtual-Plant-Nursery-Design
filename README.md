@@ -15,6 +15,9 @@ The Virtual Plant Nursery is a simulated e-commerce platform for plant lovers. U
 
 ## 🔧 Modules / Pages
 
+- **Login Page** [done]
+  - Login form for accessing the application
+
 - **Home Page** [done]
   - Introduction to the nursery
   - Featured plant categories
@@ -24,7 +27,7 @@ The Virtual Plant Nursery is a simulated e-commerce platform for plant lovers. U
   - Overview of the nursery concept
   - Mission and inspiration behind the project
 
-- **Contact Page**
+- **Contact Page** [done]
   - Contact form for inquiries
   - Social media links or icons
 
@@ -48,10 +51,10 @@ The Virtual Plant Nursery is a simulated e-commerce platform for plant lovers. U
 
 ---
 
-> This project focuses on frontend design and interactivity. Backend functionality (e.g., authentication, payment, database) may be mocked or left as stubs for future enhancement.
+> This project focuses on frontend UI design template for Virtual Plant Nursery application.
 
 ## 🚀 Tech Stack (Optional)
-*React, Tailwind CSS, React Router* (add this section if you want to list tech used)
+*HTML, Tailwind CSS, Javascript*
 
 ---
 
