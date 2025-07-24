@@ -36,7 +36,7 @@ The Virtual Plant Nursery is a simulated e-commerce platform for plant lovers. U
   - Filter and search functionality
   - Display cards for each plant with image, name, and price
 
-- **Plant Detail Page**
+- **Plant Detail Page** [done]
   - Detailed view of the selected plant
   - Includes scientific name, description, care instructions, and "Add to Cart" button
 
