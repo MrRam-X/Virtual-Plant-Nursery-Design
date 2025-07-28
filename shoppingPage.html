@@ -77,16 +77,46 @@
             <a href="#" class="text-white hover:text-brand-accent"
               ><i class="fas fa-search fa-lg"></i
             ></a>
-            <a href="#" class="text-white hover:text-brand-accent"
-              ><i class="fas fa-user fa-lg"></i
-            ></a>
-            <a href="#" class="text-white hover:text-brand-accent relative">
-              <i class="fas fa-shopping-cart fa-lg"></i>
-              <span
+            <a href="#" class="text-white hover:text-brand-accent relative"
+              ><i class="fas fa-shopping-cart fa-lg"></i
+              ><span
                 class="absolute -top-2 -right-2 bg-brand-accent text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"
                 >3</span
+              ></a
+            >
+            <!-- NEW Profile Dropdown -->
+            <div class="relative" id="profile-dropdown-container">
+              <button
+                id="profile-dropdown-button"
+                class="flex items-center gap-1 text-brand-accent font-semibold"
               >
-            </a>
+                <i class="fas fa-user fa-lg"></i>
+                <i
+                  class="fas fa-chevron-down text-xs transition-transform duration-300"
+                ></i>
+              </button>
+              <div
+                id="profile-dropdown-panel"
+                class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-20"
+              >
+                <ul class="py-1 text-gray-700">
+                  <li>
+                    <a
+                      href="accountPage.html"
+                      class="flex items-center gap-3 px-4 py-2 text-sm hover:bg-gray-100"
+                      ><i class="fas fa-user-circle w-4"></i> My Profile</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="login.html"
+                      class="flex items-center gap-3 px-4 py-2 text-sm hover:bg-gray-100"
+                      ><i class="fas fa-sign-out-alt w-4"></i> Logout</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -109,7 +139,9 @@
                 <a href="index.html" class="hover:text-brand-accent">Home</a>
               </li>
               <li>
-                <a href="shoppingPage.html" class="text-brand-accent font-semibold"
+                <a
+                  href="shoppingPage.html"
+                  class="text-brand-accent font-semibold"
                   >Shop</a
                 >
               </li>
@@ -335,7 +367,10 @@
               <div
                 class="bg-white group rounded-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300"
               >
-                <a href="productDetails.html" class="block relative h-72 sm:h-80">
+                <a
+                  href="productDetails.html"
+                  class="block relative h-72 sm:h-80"
+                >
                   <div
                     class="absolute top-0 left-0 bg-brand-accent text-white text-xs font-bold px-2 py-1 m-3 rounded-md"
                   >
@@ -379,7 +414,10 @@
               <div
                 class="bg-white group rounded-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300"
               >
-                <a href="productDetails.html" class="block relative h-72 sm:h-80">
+                <a
+                  href="productDetails.html"
+                  class="block relative h-72 sm:h-80"
+                >
                   <!-- No Discount Badge -->
                   <img
                     src="https://images.pexels.com/photos/4503269/pexels-photo-4503269.jpeg"
@@ -418,7 +456,10 @@
               <div
                 class="bg-white group rounded-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300"
               >
-                <a href="productDetails.html" class="block relative h-72 sm:h-80">
+                <a
+                  href="productDetails.html"
+                  class="block relative h-72 sm:h-80"
+                >
                   <div
                     class="absolute top-0 left-0 bg-brand-accent text-white text-xs font-bold px-2 py-1 m-3 rounded-md"
                   >
@@ -462,7 +503,10 @@
               <div
                 class="bg-white group rounded-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300"
               >
-                <a href="productDetails.html" class="block relative h-72 sm:h-80">
+                <a
+                  href="productDetails.html"
+                  class="block relative h-72 sm:h-80"
+                >
                   <div
                     class="absolute top-0 left-0 bg-brand-accent text-white text-xs font-bold px-2 py-1 m-3 rounded-md"
                   >
@@ -506,7 +550,10 @@
               <div
                 class="bg-white group rounded-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300"
               >
-                <a href="productDetails.html" class="block relative h-72 sm:h-80">
+                <a
+                  href="productDetails.html"
+                  class="block relative h-72 sm:h-80"
+                >
                   <!-- No Discount Badge -->
                   <img
                     src="https://images.pexels.com/photos/8989342/pexels-photo-8989342.jpeg"
@@ -545,7 +592,10 @@
               <div
                 class="bg-white group rounded-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300"
               >
-                <a href="productDetails.html" class="block relative h-72 sm:h-80">
+                <a
+                  href="productDetails.html"
+                  class="block relative h-72 sm:h-80"
+                >
                   <div
                     class="absolute top-0 left-0 bg-brand-accent text-white text-xs font-bold px-2 py-1 m-3 rounded-md"
                   >
@@ -690,7 +740,6 @@
     </footer>
 
     <!-- All JavaScript -->
-    <!-- START: REPLACE THE ENTIRE SCRIPT BLOCK AT THE END OF THE BODY WITH THIS -->
     <script>
       // --- Mobile Header Menu Logic ---
       const headerMenuOpenBtn = document.getElementById(
@@ -709,11 +758,32 @@
           headerMenu.classList.add("hidden");
           document.body.style.overflow = "";
         });
-        headerMenu.querySelectorAll("a").forEach((link) => {
-          link.addEventListener("click", () => {
-            headerMenu.classList.add("hidden");
-            document.body.style.overflow = "";
-          });
+      }
+
+      // --- Header Profile Dropdown Logic ---
+      const profileDropdownContainer = document.getElementById(
+        "profile-dropdown-container"
+      );
+      const profileDropdownButton = document.getElementById(
+        "profile-dropdown-button"
+      );
+      const profileDropdownPanel = document.getElementById(
+        "profile-dropdown-panel"
+      );
+      if (profileDropdownButton) {
+        profileDropdownButton.addEventListener("click", () => {
+          profileDropdownPanel.classList.toggle("hidden");
+          profileDropdownButton
+            .querySelector(".fa-chevron-down")
+            .classList.toggle("rotate-180");
+        });
+        document.addEventListener("click", (e) => {
+          if (!profileDropdownContainer.contains(e.target)) {
+            profileDropdownPanel.classList.add("hidden");
+            profileDropdownButton
+              .querySelector(".fa-chevron-down")
+              .classList.remove("rotate-180");
+          }
         });
       }
 
@@ -737,8 +807,6 @@
           });
         });
       }
-
-      // Attach listeners to the main document for the DESKTOP view
       attachAccordionListeners(document);
 
       // --- Mobile Filter Panel Logic ---
@@ -748,49 +816,30 @@
       const filterMenuNode = document.querySelector(
         ".lg\\:col-span-1 > .sticky"
       );
-
       if (filterMenuOpenBtn && filterMenuNode) {
-        // Create the mobile filter panel dynamically
         const mobileFilterPanel = document.createElement("div");
         mobileFilterPanel.id = "mobile-filter-menu";
         mobileFilterPanel.className =
           "hidden fixed inset-0 bg-black bg-opacity-50 z-50";
-        mobileFilterPanel.innerHTML = `
-            <div class="absolute top-0 right-0 h-full w-full max-w-sm bg-brand-off-white shadow-xl p-6 overflow-y-auto">
-                <div class="flex justify-between items-center mb-6">
-                    <h2 class="font-serif text-3xl text-brand-green">Filters</h2>
-                    <button id="mobile-filter-close-button" class="text-gray-500 hover:text-brand-green"><i class="fas fa-times fa-2x"></i></button>
-                </div>
-                <div id="mobile-filter-content"></div>
-            </div>
-        `;
+        mobileFilterPanel.innerHTML = `<div class="absolute top-0 right-0 h-full w-full max-w-sm bg-brand-off-white shadow-xl p-6 overflow-y-auto"><div class="flex justify-between items-center mb-6"><h2 class="font-serif text-3xl text-brand-green">Filters</h2><button id="mobile-filter-close-button" class="text-gray-500 hover:text-brand-green"><i class="fas fa-times fa-2x"></i></button></div><div id="mobile-filter-content"></div></div>`;
         document.body.appendChild(mobileFilterPanel);
-
-        // Clone the desktop sidebar content into the mobile panel
         const mobileFilterContent = document.getElementById(
           "mobile-filter-content"
         );
         mobileFilterContent.appendChild(filterMenuNode.cloneNode(true));
-
-        // **THE FIX**: Attach the accordion listeners to the NEWLY CLONED mobile content
         attachAccordionListeners(mobileFilterContent);
-
-        // Now set up the open/close logic for the mobile panel
         const filterMenu = document.getElementById("mobile-filter-menu");
         const filterMenuCloseBtn = document.getElementById(
           "mobile-filter-close-button"
         );
-
         filterMenuOpenBtn.addEventListener("click", () => {
           filterMenu.classList.remove("hidden");
           document.body.style.overflow = "hidden";
         });
-
         filterMenuCloseBtn.addEventListener("click", () => {
           filterMenu.classList.add("hidden");
           document.body.style.overflow = "";
         });
-
         filterMenu.addEventListener("click", (e) => {
           if (e.target.id === "mobile-filter-menu") {
             filterMenu.classList.add("hidden");
@@ -799,44 +848,36 @@
         });
       }
 
-      // Custom dropdown logic
+      // --- Custom Sort Dropdown Logic ---
       const dropdown = document.getElementById("custom-sort-dropdown");
-      const dropdownButton = document.getElementById("sort-dropdown-button");
-      const dropdownPanel = document.getElementById("sort-dropdown-panel");
-      const dropdownLabel = document.getElementById("sort-dropdown-label");
-      const dropdownOptions = dropdownPanel.querySelectorAll("li");
-      const dropdownIcon = dropdownButton.querySelector("i");
-
-      dropdownButton.addEventListener("click", () => {
-        dropdownPanel.classList.toggle("hidden");
-        dropdownIcon.classList.toggle("rotate-180");
+      const sortDropdownButton = document.getElementById(
+        "sort-dropdown-button"
+      );
+      const sortDropdownPanel = document.getElementById("sort-dropdown-panel");
+      const sortDropdownLabel = document.getElementById("sort-dropdown-label");
+      const sortDropdownOptions = sortDropdownPanel.querySelectorAll("li");
+      const sortDropdownIcon = sortDropdownButton.querySelector("i");
+      sortDropdownButton.addEventListener("click", () => {
+        sortDropdownPanel.classList.toggle("hidden");
+        sortDropdownIcon.classList.toggle("rotate-180");
       });
-
-      dropdownOptions.forEach((option) => {
+      sortDropdownOptions.forEach((option) => {
         option.addEventListener("click", () => {
-          // Update the button text
-          dropdownLabel.textContent = option.dataset.value;
-
-          // Update the checkmark visibility
-          dropdownOptions.forEach((opt) =>
+          sortDropdownLabel.textContent = option.dataset.value;
+          sortDropdownOptions.forEach((opt) =>
             opt.querySelector("i").classList.add("hidden")
-          ); // Hide all checks
-          option.querySelector("i").classList.remove("hidden"); // Show check on selected
-
-          // Close the dropdown
-          dropdownPanel.classList.add("hidden");
-          dropdownIcon.classList.remove("rotate-180");
+          );
+          option.querySelector("i").classList.remove("hidden");
+          sortDropdownPanel.classList.add("hidden");
+          sortDropdownIcon.classList.remove("rotate-180");
         });
       });
-
-      // Close dropdown when clicking outside
       document.addEventListener("click", (e) => {
         if (!dropdown.contains(e.target)) {
-          dropdownPanel.classList.add("hidden");
-          dropdownIcon.classList.remove("rotate-180");
+          sortDropdownPanel.classList.add("hidden");
+          sortDropdownIcon.classList.remove("rotate-180");
         }
       });
     </script>
-    <!-- END OF SCRIPT -->
   </body>
 </html>

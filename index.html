@@ -54,14 +54,18 @@
 
           <!-- Logo -->
           <div class="text-center lg:text-left">
-            <a href="index.html" class="font-serif text-3xl text-white">Planto.</a>
+            <a href="index.html" class="font-serif text-3xl text-white"
+              >Planto.</a
+            >
           </div>
 
           <!-- Desktop Navigation -->
           <nav class="hidden lg:flex">
             <ul class="flex items-center space-x-8 text-lg text-white">
               <li>
-                <a href="index.html" class="text-brand-accent font-semibold">Home</a>
+                <a href="index.html" class="text-brand-accent font-semibold"
+                  >Home</a
+                >
               </li>
               <li>
                 <a href="shoppingPage.html" class="hover:text-brand-accent"
@@ -84,9 +88,6 @@
             <a href="#" class="text-white hover:text-brand-accent"
               ><i class="fas fa-search fa-lg"></i
             ></a>
-            <a href="#" class="text-white hover:text-brand-accent"
-              ><i class="fas fa-user fa-lg"></i
-            ></a>
             <a href="#" class="text-white hover:text-brand-accent relative">
               <i class="fas fa-shopping-cart fa-lg"></i>
               <span
@@ -94,6 +95,39 @@
                 >3</span
               >
             </a>
+            <!-- NEW Profile Dropdown -->
+            <div class="relative" id="profile-dropdown-container">
+              <button
+                id="profile-dropdown-button"
+                class="flex items-center gap-1 text-brand-accent font-semibold"
+              >
+                <i class="fas fa-user fa-lg"></i>
+                <i
+                  class="fas fa-chevron-down text-xs transition-transform duration-300"
+                ></i>
+              </button>
+              <div
+                id="profile-dropdown-panel"
+                class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-20"
+              >
+                <ul class="py-1 text-gray-700">
+                  <li>
+                    <a
+                      href="accountPage.html"
+                      class="flex items-center gap-3 px-4 py-2 text-sm hover:bg-gray-100"
+                      ><i class="fas fa-user-circle w-4"></i> My Profile</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="login.html"
+                      class="flex items-center gap-3 px-4 py-2 text-sm hover:bg-gray-100"
+                      ><i class="fas fa-sign-out-alt w-4"></i> Logout</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -117,7 +151,9 @@
               class="flex flex-col items-center space-y-8 text-4xl font-serif text-white"
             >
               <li>
-                <a href="index.html" class="text-brand-accent font-semibold">Home</a>
+                <a href="index.html" class="text-brand-accent font-semibold"
+                  >Home</a
+                >
               </li>
               <li>
                 <a href="shoppingPage.html" class="hover:text-brand-accent"
@@ -442,31 +478,52 @@
       </div>
     </footer>
     <script>
-      const openButton = document.getElementById("mobile-menu-open-button");
-      const closeButton = document.getElementById("mobile-menu-close-button");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const navLinks = mobileMenu.querySelectorAll("a");
-
-      // Function to open the menu
-      function openMenu() {
-        mobileMenu.classList.remove("hidden");
-        document.body.style.overflow = "hidden"; // Prevents scrolling of the background page
+      // --- Mobile Header Menu Logic ---
+      const headerMenuOpenBtn = document.getElementById(
+        "mobile-menu-open-button"
+      );
+      const headerMenuCloseBtn = document.getElementById(
+        "mobile-menu-close-button"
+      );
+      const headerMenu = document.getElementById("mobile-menu");
+      if (headerMenu) {
+        headerMenuOpenBtn.addEventListener("click", () => {
+          headerMenu.classList.remove("hidden");
+          document.body.style.overflow = "hidden";
+        });
+        headerMenuCloseBtn.addEventListener("click", () => {
+          headerMenu.classList.add("hidden");
+          document.body.style.overflow = "";
+        });
       }
 
-      // Function to close the menu
-      function closeMenu() {
-        mobileMenu.classList.add("hidden");
-        document.body.style.overflow = ""; // Re-enables scrolling
+      // --- Header Profile Dropdown Logic ---
+      const profileDropdownContainer = document.getElementById(
+        "profile-dropdown-container"
+      );
+      const profileDropdownButton = document.getElementById(
+        "profile-dropdown-button"
+      );
+      const profileDropdownPanel = document.getElementById(
+        "profile-dropdown-panel"
+      );
+      if (profileDropdownButton) {
+        profileDropdownButton.addEventListener("click", () => {
+          profileDropdownPanel.classList.toggle("hidden");
+          profileDropdownButton
+            .querySelector(".fa-chevron-down")
+            .classList.toggle("rotate-180");
+        });
+        // Also close dropdown when clicking outside
+        document.addEventListener("click", (e) => {
+          if (!profileDropdownContainer.contains(e.target)) {
+            profileDropdownPanel.classList.add("hidden");
+            profileDropdownButton
+              .querySelector(".fa-chevron-down")
+              .classList.remove("rotate-180");
+          }
+        });
       }
-
-      // Event Listeners
-      openButton.addEventListener("click", openMenu);
-      closeButton.addEventListener("click", closeMenu);
-
-      // Also close menu when a navigation link is clicked
-      navLinks.forEach((link) => {
-        link.addEventListener("click", closeMenu);
-      });
     </script>
   </body>
 </html>
