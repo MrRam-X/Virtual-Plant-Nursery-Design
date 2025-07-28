@@ -177,15 +177,17 @@
               Your Items (3)
             </h2>
             <div class="space-y-6">
-              <!-- Cart Item 1 -->
-              <div class="flex flex-col sm:flex-row gap-4 border-b pb-6">
+              <!-- REDESIGNED Cart Item 1 -->
+              <div class="flex items-start gap-4 border-b pb-6">
                 <img
                   src="https://images.pexels.com/photos/6297518/pexels-photo-6297518.jpeg"
                   alt="Monstera Deliciosa"
-                  class="w-24 h-24 object-cover rounded-md"
+                  class="w-24 h-24 object-cover rounded-md flex-shrink-0"
                 />
-                <div class="flex-1 space-y-2">
-                  <h3 class="font-semibold text-lg">Monstera Deliciosa</h3>
+                <div class="flex-grow space-y-2">
+                  <h3 class="font-semibold text-lg text-brand-green">
+                    Monstera Deliciosa
+                  </h3>
                   <p class="text-sm text-gray-500">Indoor Plant</p>
                   <div class="flex items-center border rounded-md w-min mt-2">
                     <button class="px-3 py-1 text-lg hover:bg-gray-200">
@@ -202,22 +204,24 @@
                     </button>
                   </div>
                 </div>
-                <div class="text-right">
-                  <p class="font-bold text-lg">$36.00</p>
-                  <button class="text-sm text-red-500 hover:underline mt-2">
+                <div class="text-right flex-shrink-0">
+                  <p class="font-bold text-lg text-brand-green">$36.00</p>
+                  <button class="text-sm text-red-500 hover:underline mt-1">
                     Remove
                   </button>
                 </div>
               </div>
-              <!-- Cart Item 2 -->
-              <div class="flex flex-col sm:flex-row gap-4 border-b pb-6">
+              <!-- REDESIGNED Cart Item 2 -->
+              <div class="flex items-start gap-4 border-b pb-6">
                 <img
                   src="https://images.pexels.com/photos/7245625/pexels-photo-7245625.jpeg"
                   alt="Fiddle Leaf Fig"
-                  class="w-24 h-24 object-cover rounded-md"
+                  class="w-24 h-24 object-cover rounded-md flex-shrink-0"
                 />
-                <div class="flex-1 space-y-2">
-                  <h3 class="font-semibold text-lg">Fiddle Leaf Fig</h3>
+                <div class="flex-grow space-y-2">
+                  <h3 class="font-semibold text-lg text-brand-green">
+                    Fiddle Leaf Fig
+                  </h3>
                   <p class="text-sm text-gray-500">Indoor Plant</p>
                   <div class="flex items-center border rounded-md w-min mt-2">
                     <button class="px-3 py-1 text-lg hover:bg-gray-200">
@@ -234,9 +238,9 @@
                     </button>
                   </div>
                 </div>
-                <div class="text-right">
-                  <p class="font-bold text-lg">$63.75</p>
-                  <button class="text-sm text-red-500 hover:underline mt-2">
+                <div class="text-right flex-shrink-0">
+                  <p class="font-bold text-lg text-brand-green">$63.75</p>
+                  <button class="text-sm text-red-500 hover:underline mt-1">
                     Remove
                   </button>
                 </div>
@@ -467,7 +471,6 @@
       </div>
     </footer>
 
-    <!-- All JavaScript -->
     <script>
       // --- Mobile Header Menu Logic ---
       const headerMenuOpenBtn = document.getElementById(
@@ -487,7 +490,6 @@
           document.body.style.overflow = "";
         });
       }
-
       // --- Header Profile Dropdown Logic ---
       const profileDropdownContainer = document.getElementById(
         "profile-dropdown-container"
