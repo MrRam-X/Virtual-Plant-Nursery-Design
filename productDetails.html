@@ -16,24 +16,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
 
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              "brand-green": "#0A3026",
-              "brand-green-light": "#1E473C",
-              "brand-accent": "#F3A33D",
-              "brand-off-white": "#F8F7F4",
-            },
-            fontFamily: {
-              serif: ["Playfair Display", "serif"],
-              sans: ["Inter", "sans-serif"],
-            },
-          },
-        },
-      };
-    </script>
+    <script src="tailwind-config.js"></script>
   </head>
 
   <body class="bg-white font-sans text-brand-green-light">
@@ -538,100 +521,6 @@
     </footer>
 
     <!-- All JavaScript -->
-    <script>
-      // --- Mobile Header Menu Logic ---
-      const headerMenuOpenBtn = document.getElementById(
-        "mobile-menu-open-button"
-      );
-      const headerMenuCloseBtn = document.getElementById(
-        "mobile-menu-close-button"
-      );
-      const headerMenu = document.getElementById("mobile-menu");
-      if (headerMenu) {
-        headerMenuOpenBtn.addEventListener("click", () => {
-          headerMenu.classList.remove("hidden");
-          document.body.style.overflow = "hidden";
-        });
-        headerMenuCloseBtn.addEventListener("click", () => {
-          headerMenu.classList.add("hidden");
-          document.body.style.overflow = "";
-        });
-      }
-
-      // --- Header Profile Dropdown Logic ---
-      const profileDropdownContainer = document.getElementById(
-        "profile-dropdown-container"
-      );
-      const profileDropdownButton = document.getElementById(
-        "profile-dropdown-button"
-      );
-      const profileDropdownPanel = document.getElementById(
-        "profile-dropdown-panel"
-      );
-      if (profileDropdownButton) {
-        profileDropdownButton.addEventListener("click", () => {
-          profileDropdownPanel.classList.toggle("hidden");
-          profileDropdownButton
-            .querySelector(".fa-chevron-down")
-            .classList.toggle("rotate-180");
-        });
-        document.addEventListener("click", (e) => {
-          if (!profileDropdownContainer.contains(e.target)) {
-            profileDropdownPanel.classList.add("hidden");
-            profileDropdownButton
-              .querySelector(".fa-chevron-down")
-              .classList.remove("rotate-180");
-          }
-        });
-      }
-
-      // --- Image Gallery Logic ---
-      const mainImage = document.getElementById("main-product-image");
-      const thumbnailButtons = document.querySelectorAll(".thumbnail-button");
-      if (mainImage && thumbnailButtons.length) {
-        thumbnailButtons.forEach((button) => {
-          button.addEventListener("click", () => {
-            mainImage.src = button.querySelector("img").src;
-            thumbnailButtons.forEach((btn) =>
-              btn.classList.remove("border-brand-green")
-            );
-            button.classList.add("border-brand-green");
-          });
-        });
-      }
-
-      // --- Quantity Selector Logic ---
-      const quantityInput = document.getElementById("quantity-input");
-      const quantitySelector = document.querySelector(".quantity-selector");
-      if (quantitySelector) {
-        quantitySelector.addEventListener("click", (e) => {
-          const button = e.target.closest("button");
-          if (!button) return;
-          const action = button.dataset.action;
-          let currentValue = parseInt(quantityInput.value);
-          if (action === "increment") {
-            quantityInput.value = currentValue + 1;
-          } else if (action === "decrement" && currentValue > 1) {
-            quantityInput.value = currentValue - 1;
-          }
-        });
-      }
-
-      // --- Accordion Logic ---
-      document.querySelectorAll("[data-accordion-button]").forEach((button) => {
-        button.addEventListener("click", () => {
-          const panel = button.nextElementSibling;
-          const icon = button.querySelector("i");
-          panel.classList.toggle("hidden");
-          if (panel.classList.contains("hidden")) {
-            icon.classList.remove("fa-minus");
-            icon.classList.add("fa-plus");
-          } else {
-            icon.classList.remove("fa-plus");
-            icon.classList.add("fa-minus");
-          }
-        });
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
