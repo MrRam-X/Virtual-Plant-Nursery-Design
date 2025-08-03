@@ -23,7 +23,69 @@
   </head>
 
   <body class="bg-brand-off-white font-sans text-brand-green-light">
-    <!-- 1. HEADER -->
+    <!-- Toaster message -->
+    <div
+      id="toaster-container"
+      class="fixed top-4 right-4 z-[9999] w-full max-w-sm space-y-3"
+    >
+      <!-- Success Toast Template -->
+      <div
+        id="success-toast"
+        class="toast-template hidden bg-white rounded-lg shadow-lg overflow-hidden flex w-full max-w-sm"
+      >
+        <div class="w-2 bg-green-500"></div>
+        <div class="p-4 text-2xl text-brand-green">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="py-4 flex-grow">
+          <p id="success-toast-message" class="font-semibold text-brand-green">
+            Default success message.
+          </p>
+        </div>
+        <button data-close-toast class="p-4 text-gray-400 hover:text-gray-700">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <!-- Error/Fail Toast Template -->
+      <div
+        id="error-toast"
+        class="toast-template hidden bg-white rounded-lg shadow-lg overflow-hidden flex w-full max-w-sm"
+      >
+        <div class="w-2 bg-red-500"></div>
+        <div class="p-4 text-2xl text-brand-green">
+          <i class="fas fa-times-circle"></i>
+        </div>
+        <div class="py-4 flex-grow">
+          <p id="error-toast-message" class="font-semibold text-brand-green">
+            Default error message.
+          </p>
+        </div>
+        <button data-close-toast class="p-4 text-gray-400 hover:text-gray-700">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <!-- Info/Common Toast Template -->
+      <div
+        id="info-toast"
+        class="toast-template hidden bg-white rounded-lg shadow-lg overflow-hidden flex w-full max-w-sm"
+      >
+        <div class="w-2 bg-blue-500"></div>
+        <div class="p-4 text-2xl text-brand-green">
+          <i class="fas fa-info-circle"></i>
+        </div>
+        <div class="py-4 flex-grow">
+          <p id="info-toast-message" class="font-semibold text-brand-green">
+            Default info message.
+          </p>
+        </div>
+        <button data-close-toast class="p-4 text-gray-400 hover:text-gray-700">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+    <!-- HEADER -->
     <header class="bg-brand-green sticky top-0 z-50">
       <div class="container mx-auto px-4">
         <div class="flex items-center justify-between h-20">
@@ -370,5 +432,69 @@
 
     <!-- Mobile Menu Script -->
     <script src="script.js"></script>
+    <script>
+      // An object to hold the timers for each toast type
+      const toastTimers = {};
+
+      // Function to show a toast
+      function showToast(message, type = "info") {
+        // type can be 'success', 'error', or 'info'
+        const toastElement = document.getElementById(`${type}-toast`);
+        const messageElement = document.getElementById(`${type}-toast-message`);
+
+        if (!toastElement || !messageElement) return;
+
+        // Update the message
+        messageElement.textContent = message;
+
+        // Make the toast visible
+        toastElement.classList.remove("hidden", "animate-fade-out-right");
+        toastElement.classList.add("animate-fade-in-right");
+
+        // If there's an existing timer for this toast, clear it
+        if (toastTimers[type]) {
+          clearTimeout(toastTimers[type]);
+        }
+
+        // Set a new timer to hide the toast after 5 seconds
+        toastTimers[type] = setTimeout(() => {
+          hideToast(toastElement);
+        }, 5000);
+      }
+
+      // Function to hide a toast with animation
+      function hideToast(toastElement) {
+        if (!toastElement) return;
+        toastElement.classList.remove("animate-fade-in-right");
+        toastElement.classList.add("animate-fade-out-right");
+        // Wait for the fade-out animation to finish before adding 'hidden'
+        toastElement.addEventListener(
+          "animationend",
+          () => {
+            toastElement.classList.add("hidden");
+          },
+          { once: true }
+        ); // The listener will automatically remove itself after running once
+      }
+
+      // Add event listeners to all close buttons when the page loads
+      document.addEventListener("DOMContentLoaded", () => {
+        const closeButtons = document.querySelectorAll("[data-close-toast]");
+        closeButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const toast = button.closest(".toast-template");
+            // Clear any running timer for this toast before manually closing
+            const type = toast.id.replace("-toast", "");
+            if (toastTimers[type]) {
+              clearTimeout(toastTimers[type]);
+            }
+            hideToast(toast);
+          });
+        });
+      });
+      showToast("Your profile was saved successfully!", "success");
+      showToast("Failed to update password.", "error");
+      showToast("New feature coming soon.", "info");
+    </script>
   </body>
 </html>
