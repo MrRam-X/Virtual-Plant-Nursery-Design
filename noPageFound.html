@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Not Found - Planto</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Icon Library -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <!-- Custom Tailwind Config -->
+    <script src="tailwind-config.js"></script>
+  </head>
+
+  <body class="bg-brand-green">
+    <main
+      class="relative min-h-screen flex items-center justify-center p-8 text-center text-white"
+    >
+      <!-- Background Image with Overlay -->
+      <div class="absolute inset-0">
+        <img
+          src="https://images.pexels.com/photos/6508425/pexels-photo-6508425.jpeg"
+          alt="Lush green plant background"
+          class="w-full h-full object-cover opacity-20"
+        />
+      </div>
+
+      <!-- Content -->
+      <div class="relative z-10">
+        <h1 class="font-serif text-8xl sm:text-9xl font-bold text-brand-accent">
+          404
+        </h1>
+        <h2 class="font-serif text-4xl sm:text-5xl mt-4">
+          Lost in the Leaves?
+        </h2>
+        <p class="mt-6 text-lg text-gray-300 max-w-md mx-auto">
+          It seems the page you're looking for has been replanted or has
+          wandered off the garden path.
+        </p>
+        <div class="mt-10">
+          <a
+            href="index.html"
+            class="inline-block bg-brand-green text-white font-bold py-3 px-8 text-lg hover:bg-brand-green-light border-2 border-white/50 hover:border-white transition-all duration-300 rounded-md"
+          >
+            <i class="fas fa-home mr-2"></i>
+            Return to Homepage
+          </a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
