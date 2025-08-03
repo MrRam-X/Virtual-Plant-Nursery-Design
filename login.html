@@ -23,6 +23,100 @@
   </head>
 
   <body class="bg-brand-green">
+    <header class="bg-brand-green sticky top-0 z-50">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between h-20">
+          <!-- Mobile Menu Toggle Button -->
+          <div class="lg:hidden">
+            <button id="mobile-menu-open-button" class="text-white">
+              <i class="fas fa-bars fa-lg"></i>
+            </button>
+          </div>
+
+          <!-- Logo -->
+          <div class="text-center lg:text-left">
+            <a href="index.html" class="font-serif text-3xl text-white"
+              >Planto.</a
+            >
+          </div>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden lg:flex">
+            <ul class="flex items-center space-x-8 text-lg text-white">
+              <li>
+                <a href="index.html" class="text-brand-accent font-semibold"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a href="shoppingPage.html" class="hover:text-brand-accent"
+                  >Shop</a
+                >
+              </li>
+              <li>
+                <a href="aboutUs.html" class="hover:text-brand-accent">About</a>
+              </li>
+              <li>
+                <a href="contactUs.html" class="hover:text-brand-accent"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Header Icons -->
+          <div>
+            <a
+              href="login.html"
+              class="bg-brand-accent text-black font-bold py-2 px-6 hover:bg-white hover:text-black transition-colors"
+            >
+              Login
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Panel (Hidden by default) -->
+      <div
+        id="mobile-menu"
+        class="hidden fixed inset-0 z-40 bg-brand-green bg-opacity-95 backdrop-blur-sm"
+      >
+        <div class="container mx-auto p-4 h-full flex flex-col">
+          <!-- Top section with close button -->
+          <div class="flex justify-end mb-8">
+            <button id="mobile-menu-close-button" class="text-white">
+              <i class="fas fa-times fa-2x"></i>
+            </button>
+          </div>
+
+          <!-- Centered Navigation Links -->
+          <nav class="flex-grow flex items-center justify-center">
+            <ul
+              class="flex flex-col items-center space-y-8 text-4xl font-serif text-white"
+            >
+              <li>
+                <a href="index.html" class="text-brand-accent font-semibold"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a href="shoppingPage.html" class="hover:text-brand-accent"
+                  >Shop</a
+                >
+              </li>
+              <li>
+                <a href="aboutUs.html" class="hover:text-brand-accent">About</a>
+              </li>
+              <li>
+                <a href="contactUs.html" class="hover:text-brand-accent"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
     <!-- START: REPLACE THE ENTIRE <main> SECTION WITH THIS CODE -->
     <main class="relative min-h-screen flex items-center justify-center p-4">
       <!-- Background Image -->
